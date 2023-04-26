@@ -16,5 +16,5 @@ This repository contains the code files for a schedule management system, where 
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/JoseCChaparro)
+- [@JoseCChaparro](https://www.github.com/JoseCChaparro)
 
