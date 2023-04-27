@@ -1,7 +1,7 @@
 <app-header [title]="title"></app-header>
 
 
-<div class="example-header"> 
+<div class="example-header">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
     </mat-form-field>
@@ -39,17 +39,17 @@
             <mat-cell *matCellDef="let row"> {{row.surname}} </mat-cell>
         </ng-container>
 
-        <!-- Course Column -->
+        <!-- Course Column >
         <ng-container matColumnDef="course">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Carrera </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.course}} </mat-cell>
         </ng-container>
 
-        <!-- Color Column -->
+        <!-- Color Column >
         <ng-container matColumnDef="status">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
             <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.status}} </mat-cell>
-        </ng-container>
+        </ng-container-->
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;">

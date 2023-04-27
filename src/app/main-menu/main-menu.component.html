@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="main-menu.component.css">
+</head>
+
+<body>
+    <app-header [title]="title" [showBackButton]="false"></app-header>
+
+    <div class="buttons">
+        <button class="button" routerLink="/alumnos">Alumnos</button>
+        <button class="button" routerLink="/maestros">Maestros</button>
+        <button class="button">Cursos</button>
+        <button class="button">Materias</button>
+    </div>
+</body>
+
+</html>

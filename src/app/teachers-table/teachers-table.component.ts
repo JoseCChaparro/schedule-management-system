@@ -4,15 +4,14 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-students-table',
-  templateUrl: './students-table.component.html',
-  styleUrls: ['./students-table.component.css']
+  selector: 'app-teachers-table',
+  templateUrl: './teachers-table.component.html',
+  styleUrls: ['./teachers-table.component.css']
 })
+export class TeachersTableComponent {
+  title = 'Maestros';
 
-export class StudentsTableComponent {
-  title = 'Alumnos';
-
-  displayedColumns = ['checkbox', 'id', 'name', 'surname', 'course', 'status'];
+  displayedColumns = ['checkbox', 'id', 'name', 'surname'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

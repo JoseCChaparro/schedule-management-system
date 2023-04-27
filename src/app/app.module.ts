@@ -13,13 +13,18 @@ import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
 
 import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
+import { MainMenuComponent } from './main-menu/main-menu.component';
+import { HeaderComponent } from './header/header.component';
+import { TeachersTableComponent } from './teachers-table/teachers-table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsTableComponent,
-    
+    MainMenuComponent,
+    HeaderComponent,
+    TeachersTableComponent,
   ],
   imports: [
     BrowserModule,
