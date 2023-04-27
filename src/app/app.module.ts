@@ -16,6 +16,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { TeachersTableComponent } from './teachers-table/teachers-table.component';
+import { SubjectsTableComponent } from './subjects-table/subjects-table.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { TeachersTableComponent } from './teachers-table/teachers-table.componen
     MainMenuComponent,
     HeaderComponent,
     TeachersTableComponent,
+    SubjectsTableComponent,
   ],
   imports: [
     BrowserModule,
