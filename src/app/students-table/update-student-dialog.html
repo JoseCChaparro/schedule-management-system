@@ -1,0 +1,36 @@
+<h1 style="padding-left: 25px">Modificar alumno {{data.name}}</h1>
+<div mat-dialog-content>
+    <h2>Matrícula</h2>
+    <mat-form-field appearance= "fill">
+        <mat-label>Matrícula</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <div style="flex: 1;">
+        <h2>Nombre</h2>
+        <h2>Apellido</h2>
+        <mat-form-field appearance= "fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance= "fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div style="flex: 0;"></div>
+    <mat-form-field appearance="fill">
+        <mat-label>Estatus</mat-label>
+        <mat-select>
+          <mat-option value="inscrito">Inscrito</mat-option>
+          <mat-option value="no inscrito">No inscrito</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  
+</div>
+
+<!--[(ngModel)]="data.name"-->
+
+<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->

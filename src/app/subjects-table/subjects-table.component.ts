@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 
 @Component({
@@ -19,7 +20,10 @@ export class SubjectsTableComponent {
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
 
-  constructor() {
+  name !: string;
+  animal !: string;
+
+  constructor(public dialog: MatDialog) {
     // Create 100 users
     const users: UserData[] = [];
     for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
@@ -46,6 +50,28 @@ export class SubjectsTableComponent {
   }
   selectAllCheckboxes(event: any) {
     this.dataSource.data.forEach(row => row.selected = event.checked);
+  }
+
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddSubjectDialog, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  openUpdateDialog(): void {
+    const dialogRef = this.dialog.open(UpdateSubjectDialog, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
 }
@@ -98,4 +124,36 @@ export interface UserData {
   name: string;
   credits: number;
   requirements: string;
+}
+
+@Component({
+  selector: 'add-subject-dialog',
+  templateUrl: 'add-subject-dialog.html',
+})
+export class AddSubjectDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AddSubjectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: UserData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'update-subject-dialog',
+  templateUrl: 'update-subject-dialog.html',
+})
+export class UpdateSubjectDialog {
+  constructor(
+    public dialogRef: MatDialogRef<UpdateSubjectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: UserData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

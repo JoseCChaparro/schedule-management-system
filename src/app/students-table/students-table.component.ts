@@ -1,7 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-students-table',
@@ -13,15 +16,19 @@ export class StudentsTableComponent {
   title = 'Alumnos';
 
   displayedColumns = ['checkbox', 'id', 'name', 'surname', 'course', 'status'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: MatTableDataSource<StudentData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
 
-  constructor() {
+  name!: string;
+  animal!: string;
+
+
+  constructor(public dialog: MatDialog) {
     // Create 100 users
-    const users: UserData[] = [];
+    const users: StudentData[] = [];
     for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
 
     // Assign the data to the data source for the table to render
@@ -48,10 +55,34 @@ export class StudentsTableComponent {
     this.dataSource.data.forEach(row => row.selected = event.checked);
   }
 
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddStudentDialog, {
+      data: { name: this.name, animal: this.animal },
+      height: '800px',
+      width: '800px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  openUpdateDialog(): void {
+    const dialogRef = this.dialog.open(UpdateStudentDialog, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
+function createNewUser(id: number): StudentData {
   const name =
     NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
@@ -83,11 +114,11 @@ const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
 const SURNAMES = ['García', 'Martínez', 'Hernández', 'López', 'González', 'Pérez',
   'Sánchez', 'Rodríguez', 'Romero', 'Suárez', 'Díaz', 'Flores', 'Ruiz',
   'Torres', 'Álvarez', 'Vargas', 'Fernández', 'Jiménez', 'Moreno', 'Cruz'];
-  const COURSES = ['Ing. Mecánica', 'Lic. Psicología', 'Ing. Electrónica',
-   'Lic. Administración', 'Ing. Civil', 'Lic. Derecho', 'Ing. Informática', 'Lic. Contabilidad'];
+const COURSES = ['Ing. Mecánica', 'Lic. Psicología', 'Ing. Electrónica',
+  'Lic. Administración', 'Ing. Civil', 'Lic. Derecho', 'Ing. Informática', 'Lic. Contabilidad'];
 
 
-export interface UserData {
+export interface StudentData {
   selected: boolean;
   id: string;
   name: string;
@@ -95,4 +126,36 @@ export interface UserData {
   status: string;
   color: string;
   course: string;
+}
+
+@Component({
+  selector: 'add-student-dialog',
+  templateUrl: 'add-student-dialog.html',
+})
+export class AddStudentDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AddStudentDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: StudentData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'update-student-dialog',
+  templateUrl: 'update-student-dialog.html',
+})
+export class UpdateStudentDialog {
+  constructor(
+    public dialogRef: MatDialogRef<UpdateStudentDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: StudentData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

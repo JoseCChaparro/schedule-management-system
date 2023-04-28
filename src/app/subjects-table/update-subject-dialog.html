@@ -1,0 +1,29 @@
+<h1 style="padding-left: 25px">Modificar materia</h1>
+<div mat-dialog-content style="width:600px">
+    <h2>Clave de materia</h2>
+    <mat-form-field style="text-align: center; width: 100%" appearance= "fill">
+        <mat-label>Clave de materia</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <h2>Nombre</h2>
+    <mat-form-field style="text-align: center; width: 100%"  appearance= "fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <h2>Creditos</h2>
+    <mat-form-field style="text-align: center; width: 100%" appearance="fill">
+      <mat-label>Creditos</mat-label>
+      <input matInput>
+    </mat-form-field>
+  <br>
+    <mat-form-field style="text-align: center; width: 100%" appearance="fill">
+      <mat-label>Requisitos</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+</div>

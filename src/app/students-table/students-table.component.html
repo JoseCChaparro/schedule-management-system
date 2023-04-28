@@ -1,11 +1,17 @@
 <app-header [title]="title"></app-header>
 
 
-<div class="example-header"> 
-    <mat-form-field>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+<div class="example-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+    <mat-form-field style="flex: 1;">
+        <input matInput (keyup)="applyFilter($event)" [(ngModel)]="name" placeholder="Filter">
     </mat-form-field>
+    <div class="button-container" style="flex: 1;">
+        <button class="delete-button">Eliminar</button>
+        <button class="modify-button" (click)="openUpdateDialog()">Modificar</button>
+        <button class="add-button" (click)="openAddDialog()">Agregar</button>
+    </div>
 </div>
+
 
 <div class="example-container mat-elevation-z8">
 

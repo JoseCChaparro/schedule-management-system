@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentsTableComponent } from './students-table/students-table.component';
+import { StudentsTableComponent, AddStudentDialog, UpdateStudentDialog } from './students-table/students-table.component';
+import { TeachersTableComponent, AddTeacherDialog } from './teachers-table/teachers-table.component';
+import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects-table/subjects-table.component';
 
 //Imorts de la tabla
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
@@ -15,18 +17,21 @@ import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
-import { TeachersTableComponent } from './teachers-table/teachers-table.component';
-import { SubjectsTableComponent } from './subjects-table/subjects-table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsTableComponent,
+    AddStudentDialog,
+    UpdateStudentDialog,
     MainMenuComponent,
     HeaderComponent,
     TeachersTableComponent,
+    AddTeacherDialog,
     SubjectsTableComponent,
+    AddSubjectDialog,
+    UpdateSubjectDialog,
   ],
   imports: [
     BrowserModule,

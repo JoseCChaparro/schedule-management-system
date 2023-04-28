@@ -4,4 +4,28 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+.button-container {
+    display: flex;
+    margin-left: auto;
+  }
   
+  .delete-button,
+  .modify-button,
+  .add-button {
+    margin-left: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover,
+  .modify-button:hover,
+  .add-button:hover {
+    background-color: #3e8e41;
+  }
