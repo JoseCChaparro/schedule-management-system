@@ -1,30 +1,42 @@
-<h1 style="margin-left: 25px">Agregar materia {{data.name}}</h1>
-<div mat-dialog-content style="width:600px">
+<h1 style="text-align: center;">Agregar alumno {{data.name}}</h1>
+<div mat-dialog-content style="width:100%; padding: 30px;">
     <h2>Clave de materia</h2>
-    <mat-form-field style="text-align: center; width: 100%" appearance= "fill">
+    <mat-form-field style="width: 100%;" appearance= "fill">
         <mat-label>Clave de materia</mat-label>
         <input matInput>
     </mat-form-field>
+
     <h2>Nombre</h2>
-    <mat-form-field style="text-align: center; width: 100%" appearance= "fill">
+    <mat-form-field style="width: 100%;" appearance="fill">
         <mat-label>Nombre</mat-label>
         <input matInput>
     </mat-form-field>
-    <h2>Creditos</h2>
-    <mat-form-field style="text-align: center; width: 100%" appearance="fill">
-      <mat-label>Creditos</mat-label>
-      <input matInput>
+
+
+    <div style="flex: 0;"></div>
+
+    <h2>Créditos</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Créditos</mat-label>
+        <input matInput>
     </mat-form-field>
-  <br>
-    <mat-form-field style="text-align: center; width: 100%" appearance="fill">
-      <mat-label>Requisitos</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+
+    <h2>Requisitos</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Toppings</mat-label>
+      <mat-select [formControl]="toppings" multiple>
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+        <button mat-button  (click)="onNoClick()" style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
+        <button mat-button  (click)="onSaveClick()" style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
+    </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Agregar</button>
-  
-</div>
+
+
+
+
+<!--[(ngModel)]="data.name"-->
+
+<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->

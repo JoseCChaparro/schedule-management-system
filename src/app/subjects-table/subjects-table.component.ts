@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-subjects-table',
@@ -55,6 +55,8 @@ export class SubjectsTableComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddSubjectDialog, {
       data: { name: this.name, animal: this.animal },
+      height: '680px',
+      width: '550px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -66,6 +68,8 @@ export class SubjectsTableComponent {
   openUpdateDialog(): void {
     const dialogRef = this.dialog.open(UpdateSubjectDialog, {
       data: { name: this.name, animal: this.animal },
+      height: '680px',
+      width: '550px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -131,12 +135,19 @@ export interface UserData {
   templateUrl: 'add-subject-dialog.html',
 })
 export class AddSubjectDialog {
+  toppings = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
   constructor(
     public dialogRef: MatDialogRef<AddSubjectDialog>,
     @Inject(MAT_DIALOG_DATA) public data: UserData
   ) { }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSaveClick(): void {
     this.dialogRef.close();
   }
 
@@ -147,12 +158,19 @@ export class AddSubjectDialog {
   templateUrl: 'update-subject-dialog.html',
 })
 export class UpdateSubjectDialog {
+  toppings = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  
   constructor(
     public dialogRef: MatDialogRef<UpdateSubjectDialog>,
     @Inject(MAT_DIALOG_DATA) public data: UserData
   ) { }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSaveClick(): void {
     this.dialogRef.close();
   }
 

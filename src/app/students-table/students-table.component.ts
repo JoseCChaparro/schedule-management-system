@@ -58,8 +58,8 @@ export class StudentsTableComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddStudentDialog, {
       data: { name: this.name, animal: this.animal },
-      height: '800px',
-      width: '800px',
+      height: '680px',
+      width: '550px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -142,6 +142,10 @@ export class AddStudentDialog {
     this.dialogRef.close();
   }
 
+  onSaveClick(): void {
+    this.dialogRef.close();
+  }
+
 }
 
 @Component({
@@ -155,6 +159,10 @@ export class UpdateStudentDialog {
   ) { }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSaveClick(): void {
     this.dialogRef.close();
   }
 

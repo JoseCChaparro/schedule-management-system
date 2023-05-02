@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentsTableComponent, AddStudentDialog, UpdateStudentDialog } from './students-table/students-table.component';
-import { TeachersTableComponent, AddTeacherDialog } from './teachers-table/teachers-table.component';
+import { TeachersTableComponent, AddTeacherDialog, UpdateTeacherDialog } from './teachers-table/teachers-table.component';
 import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects-table/subjects-table.component';
 
 //Imorts de la tabla
@@ -29,6 +29,7 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
     TeachersTableComponent,
     AddTeacherDialog,
+    UpdateTeacherDialog,
     SubjectsTableComponent,
     AddSubjectDialog,
     UpdateSubjectDialog,
@@ -38,6 +39,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     AngularMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [],

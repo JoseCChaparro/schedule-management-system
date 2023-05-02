@@ -52,8 +52,19 @@ export class TeachersTableComponent {
     this.dataSource.data.forEach(row => row.selected = event.checked);
   }
 
-  openDialog(): void {
+  openAddDialog(): void {
     const dialogRef = this.dialog.open(AddTeacherDialog, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  openUpdateDialog(): void {
+    const dialogRef = this.dialog.open(UpdateTeacherDialog, {
       data: { name: this.name, animal: this.animal },
     });
 
@@ -123,6 +134,30 @@ export class AddTeacherDialog {
   ) { }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSaveClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'update-teacher-dialog',
+  templateUrl: 'update-teacher-dialog.html',
+})
+export class UpdateTeacherDialog {
+  constructor(
+    public dialogRef: MatDialogRef<UpdateTeacherDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: UserData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSaveClick(): void {
     this.dialogRef.close();
   }
 

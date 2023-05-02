@@ -1,24 +1,39 @@
-<h1 mat-dialog-title>Agregar maestro {{data.name}}</h1>
-<div mat-dialog-content>
-    <mat-form-field sappearance= "fill">
-        <h2>Matrícula</h2>
+<h1 style="text-align: center;">Agregar maestro {{data.name}}</h1>
+<div mat-dialog-content style="width:100%; padding: 30px;">
+    <h2>Matrícula</h2>
+    <mat-form-field style="width: 100%;" appearance= "fill">
         <mat-label>Matrícula</mat-label>
         <input matInput>
     </mat-form-field>
-    <mat-form-field sappearance= "fill">
-        <h2>Nombre</h2>
-        <mat-label>Matrícula</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
-        <mat-select>
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="flex: 1;">
+            <h2>Nombre</h2>
+            <mat-form-field style="width: 95%;" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        
+        <div style="flex: 1;">
+            <h2>Apellido</h2>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Apellido</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        
+    </div>
+    <div style="flex: 0;"></div>
+
+    <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+        <button mat-button  (click)="onNoClick()" style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
+        <button mat-button  (click)="onSaveClick()" style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
+    </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  
-</div>
+
+
+
+
+<!--[(ngModel)]="data.name"-->
+
+<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
