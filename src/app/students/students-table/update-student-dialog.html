@@ -1,14 +1,15 @@
-<section class="container" style="padding: 20px;">
-    <header>
-        <h1 style="text-align: center;">
-            Agregar maestro {{data.name}}
-        </h1>
-    </header>
+<header>
+    <h1 style="text-align: center;">
+        Modificar alumno {{data.name}}
+    </h1>
+</header>
 
+<main>
 
-    <main>
+    <div mat-dialog-content style="width:100%; padding: 30px;">
 
         <h2>Matrícula</h2>
+
         <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label>Matrícula</mat-label>
             <input matInput>
@@ -32,22 +33,36 @@
 
         </div>
         <div style="flex: 0;"></div>
-    </main>
 
-    <footer style="width: auto;">
-        <!-- Botones de acción -->
+        <h2>Estatus</h2>
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Estatus</mat-label>
+            <mat-select>
+                <mat-option value="inscrito">Inscrito</mat-option>
+                <mat-option value="no inscrito">No inscrito</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <h2>Carrera</h2>
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Carrera</mat-label>
+            <mat-select>
+                <mat-option value="icc">Lic. Derecho</mat-option>
+                <mat-option value="imi">Ing. Informática</mat-option>
+                <mat-option value="imi">Ing. Electrónica</mat-option>
+                <mat-option value="imi">Ing. Civil</mat-option>
+            </mat-select>
+
+        </mat-form-field>
+
         <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
             <button mat-button (click)="onNoClick()"
                 style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
             <button mat-button (click)="onSaveClick()"
                 style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
         </div>
-    </footer>
-</section>
+    </div>
 
+    <!--[(ngModel)]="data.name"-->
 
-
-
-<!--[(ngModel)]="data.name"-->
-
-<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
+    <!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
+</main>

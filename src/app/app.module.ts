@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentsTableComponent, AddStudentDialog, UpdateStudentDialog } from './students-table/students-table.component';
+import { StudentsComponent } from './students/students.component';
+import { StudentsTableComponent, AddStudentDialog, UpdateStudentDialog } from './students/students-table/students-table.component';
 import { TeachersTableComponent, AddTeacherDialog, UpdateTeacherDialog } from './teachers-table/teachers-table.component';
 import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects-table/subjects-table.component';
 
@@ -17,11 +18,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
+import { StudentsEnrollmentComponent } from './students/students-enrollment/students-enrollment.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    StudentsComponent,
     StudentsTableComponent,
     AddStudentDialog,
     UpdateStudentDialog,
@@ -33,6 +37,7 @@ import { HeaderComponent } from './header/header.component';
     SubjectsTableComponent,
     AddSubjectDialog,
     UpdateSubjectDialog,
+    StudentsEnrollmentComponent,
   ],
   imports: [
     BrowserModule,

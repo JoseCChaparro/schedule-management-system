@@ -41,7 +41,12 @@ export class StudentsTableComponent {
    */
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.paginator._intl.itemsPerPageLabel = 'Alumnos por página';
+    this.paginator.pageSize = 10;
+    this.paginator._intl.nextPageLabel = 'Siguiente';
+    this.paginator._intl.previousPageLabel = 'Anterior';
     this.dataSource.sort = this.sort;
+
   }
 
   applyFilter(event: Event) {
@@ -58,8 +63,7 @@ export class StudentsTableComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddStudentDialog, {
       data: { name: this.name, animal: this.animal },
-      height: '680px',
-      width: '550px',
+      
     });
 
     dialogRef.afterClosed().subscribe((result) => {
