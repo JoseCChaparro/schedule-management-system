@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Student } from './student.model';
+import { StudentsService } from './student.service';
 
 @Component({
   selector: 'app-students',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class StudentsComponent {
   title: string = "Alumnos";
+
+  constructor() { }
+
+
+
 }

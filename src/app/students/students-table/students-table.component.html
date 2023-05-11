@@ -4,8 +4,8 @@
         <input matInput (keyup)="applyFilter($event)" [(ngModel)]="name" placeholder="Filter">
     </mat-form-field>
     <div class="button-container" style="display: flex; justify-content: flex-end;">
-        <button class="delete-button">Eliminar</button>
-        <button class="modify-button" (click)="openUpdateDialog()">Modificar</button>
+        <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled">Eliminar</button>
+        <button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled">Modificar</button>
         <button class="add-button" (click)="openAddDialog()">Agregar</button>
     </div>
 </div>
@@ -20,7 +20,7 @@
                 <mat-checkbox (change)="selectAllCheckboxes($event)"></mat-checkbox>
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-                <mat-checkbox [(ngModel)]="row.selected"></mat-checkbox>
+                <mat-checkbox (change)="$event ? selectRow($event, row) : null" [(ngModel)]="row.selected" ></mat-checkbox>
             </mat-cell>
         </ng-container>
 

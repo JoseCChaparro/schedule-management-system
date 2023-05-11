@@ -11,14 +11,14 @@
         <h2>Matrícula</h2>
 
         <mat-form-field style="width: 100%;" appearance="fill">
-            <mat-label>Matrícula</mat-label>
+            <mat-label>{{data.id}}</mat-label>
             <input matInput>
         </mat-form-field>
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div style="flex: 1;">
                 <h2>Nombre</h2>
                 <mat-form-field style="width: 95%;" appearance="fill">
-                    <mat-label>Nombre</mat-label>
+                    <mat-label>{{data.name}}</mat-label>
                     <input matInput>
                 </mat-form-field>
             </div>
@@ -26,7 +26,7 @@
             <div style="flex: 1;">
                 <h2>Apellido</h2>
                 <mat-form-field style="width: 100%;" appearance="fill">
-                    <mat-label>Apellido</mat-label>
+                    <mat-label>{{data.surname}}</mat-label>
                     <input matInput>
                 </mat-form-field>
             </div>
@@ -36,7 +36,7 @@
 
         <h2>Estatus</h2>
         <mat-form-field style="width: 100%;" appearance="fill">
-            <mat-label>Estatus</mat-label>
+            <mat-label>{{data.status}}</mat-label>
             <mat-select>
                 <mat-option value="inscrito">Inscrito</mat-option>
                 <mat-option value="no inscrito">No inscrito</mat-option>
@@ -44,7 +44,7 @@
         </mat-form-field>
         <h2>Carrera</h2>
         <mat-form-field style="width: 100%;" appearance="fill">
-            <mat-label>Carrera</mat-label>
+            <mat-label>{{data.course}}</mat-label>
             <mat-select>
                 <mat-option value="icc">Lic. Derecho</mat-option>
                 <mat-option value="imi">Ing. Informática</mat-option>

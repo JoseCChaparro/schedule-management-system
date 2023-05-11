@@ -19,6 +19,9 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { StudentsEnrollmentComponent, AddStudentsEnrollmentDialog } from './students/students-enrollment/students-enrollment.component';
+import { LoggingService } from './LoggingService.service';
+import { DataServices } from './data.service';
+import { StudentsService } from './students/student.service';
 
 
 
@@ -49,7 +52,10 @@ import { StudentsEnrollmentComponent, AddStudentsEnrollmentDialog } from './stud
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+  LoggingService,
+  DataServices,
+  StudentsService],
   bootstrap: [AppComponent],
   
 })
