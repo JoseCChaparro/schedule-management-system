@@ -11,7 +11,7 @@ export class StudentsService {
     saludar = new EventEmitter<number>();
 
     constructor(private loggingService: LoggingService) {
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 100; i++) {
             this.students.push(createNewStudent(i));
         }
 

@@ -1,9 +1,10 @@
 <header class="header">
     <h1>
-        <button mat-icon-button class="back-button" matTooltip="Atrás" color="#04f69d" *ngIf="showBackButton" (click)="goBack()">
-            <mat-icon>keyboard_backspace</mat-icon>
+        <button mat-icon-button class="back-button" matTooltip="Atrás"  *ngIf="showBackButton" (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
         </button>
-        {{title}}
+        <mat-label class="title">{{title}}</mat-label>
+        <!--button (click)="toggleDarkTheme()" style="position: fixed;" >Toggle dark theme</button-->
     </h1>
 </header>
 

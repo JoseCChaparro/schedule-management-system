@@ -6,6 +6,7 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 import { Student } from '../student.model';
 import { StudentsService } from '../student.service';
 
+
 @Component({
   selector: 'app-students-table',
   templateUrl: './students-table.component.html',
@@ -15,14 +16,16 @@ import { StudentsService } from '../student.service';
 export class StudentsTableComponent {
   title = 'Alumnos';
 
+  
+
   displayedColumns = ['checkbox', 'id', 'name', 'surname', 'course', 'status'];
   dataSource: MatTableDataSource<Student>;
 
-  @ViewChild(MatPaginator, { static: true }) paginator !: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
 
-  @Input() students: Student[] = [];
+  students: Student[] = [];
 
   studentSelected!: Student;
 
@@ -34,25 +37,25 @@ export class StudentsTableComponent {
     this.students = this.studentsService.students;
     this.dataSource = new MatTableDataSource(this.students);
   }
-
+  /*
   ngOnInit(): void {
     this.students = this.studentsService.students;
     
-    this.paginator._intl.itemsPerPageLabel = 'Alumnos por página';
-    this.paginator._intl.nextPageLabel = 'Siguiente';
-    this.paginator._intl.previousPageLabel = 'Anterior';
   }
+  */
+ 
 
   /**
    * Set the paginator and sort after the view init since this component will
    * be able to query its view for the initialized paginator and sort.
    */
-  ngAfterContentInit() {
-    
-    //Paginator configuration
+  ngAfterViewInit() {
     this.paginator.pageSize = 10;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.paginator._intl.itemsPerPageLabel = 'Alumnos por página';
+    this.paginator._intl.nextPageLabel = 'Siguiente';
+    this.paginator._intl.previousPageLabel = 'Anterior';
   }
 
   applyFilter(event: Event) {

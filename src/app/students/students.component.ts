@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Student } from './student.model';
-import { StudentsService } from './student.service';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-students',
@@ -9,9 +8,8 @@ import { StudentsService } from './student.service';
 })
 export class StudentsComponent {
   title: string = "Alumnos";
+  background: ThemePalette = undefined;
 
   constructor() { }
-
-
 
 }
