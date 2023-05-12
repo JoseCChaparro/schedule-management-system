@@ -12,14 +12,14 @@
 
         <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label>{{data.id}}</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="id" name="id" required>
         </mat-form-field>
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div style="flex: 1;">
                 <h2>Nombre</h2>
                 <mat-form-field style="width: 95%;" appearance="fill">
                     <mat-label>{{data.name}}</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="name" name="name">
                 </mat-form-field>
             </div>
 
@@ -27,7 +27,7 @@
                 <h2>Apellido</h2>
                 <mat-form-field style="width: 100%;" appearance="fill">
                     <mat-label>{{data.surname}}</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="surname" name="surname">
                 </mat-form-field>
             </div>
 
@@ -37,7 +37,7 @@
         <h2>Estatus</h2>
         <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label>{{data.status}}</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="status" name="status">
                 <mat-option value="inscrito">Inscrito</mat-option>
                 <mat-option value="no inscrito">No inscrito</mat-option>
             </mat-select>
@@ -45,7 +45,7 @@
         <h2>Carrera</h2>
         <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label>{{data.course}}</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="course" name="course">
                 <mat-option value="icc">Lic. Derecho</mat-option>
                 <mat-option value="imi">Ing. Informática</mat-option>
                 <mat-option value="imi">Ing. Electrónica</mat-option>
@@ -62,7 +62,4 @@
         </div>
     </div>
 
-    <!--[(ngModel)]="data.name"-->
-
-    <!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
 </main>

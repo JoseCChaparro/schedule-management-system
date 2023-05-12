@@ -14,10 +14,8 @@ export class StudentsService {
         for (let i = 1; i <= 4; i++) {
             this.students.push(createNewStudent(i));
         }
-        
+
     }
-
-
 
     addStudent(student: Student) {
         this.loggingService.sendMessageToConsole("agregamos Student: " + student.name + " " + student.surname);
@@ -31,10 +29,14 @@ export class StudentsService {
         return student;
     }
 
-    updateStudent(index: number, student: Student) {
-        let student1 = this.students[index];
-        student1.name = student.name;
-        student1.surname = student.surname;
+    updateStudent(student: Student) {
+        if (student != null) {
+            //console.log("Student que llega a update en servicio",student.id);
+            const index = this.students.findIndex(student1 => student1.id === student.id);
+            //console.log("este es el index pa",index);
+            //console.log("Student a modificar",this.students[index]);
+            this.students[index] = student;
+        }
     }
 
     deleteStudent(id: string) {

@@ -1,6 +1,6 @@
 <header>
     <h1 style="text-align: center;">
-        Agregar alumno {{data.name}}
+        Agregar alumno
     </h1>
 </header>
 
@@ -22,7 +22,7 @@
                         <input matInput [(ngModel)]="name" name="name">
                     </mat-form-field>
                 </div>
-    
+
                 <div style="flex: 1;">
                     <h2>Apellido</h2>
                     <mat-form-field style="width: 100%;" appearance="fill">
@@ -30,10 +30,10 @@
                         <input matInput [(ngModel)]="surname" name="surname">
                     </mat-form-field>
                 </div>
-    
+
             </div>
             <div style="flex: 0;"></div>
-    
+
             <h2>Estatus</h2>
             <mat-form-field style="width: 100%;" appearance="fill">
                 <mat-label>Estatus</mat-label>
@@ -52,13 +52,6 @@
                     <mat-option value="icv">Ing. Civil</mat-option>
                 </mat-select>
             </mat-form-field>
-
-            <p style="color: blue; font-size: 12px;">Nombre: {{name}}</p>
-            <p style="color: blue; font-size: 12px;">Apellido: {{surname}}</p>
-            <p style="color: blue; font-size: 12px;">Matrícula: {{id}}</p>
-            <p style="color: blue; font-size: 12px;">Estatus: {{status}}</p>
-            <p style="color: blue; font-size: 12px;">Carrera: {{course}}</p>
-
 
             <!-- Botones de acción -->
             <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
