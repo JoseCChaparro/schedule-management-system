@@ -18,7 +18,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
-import { StudentsEnrollmentComponent } from './students/students-enrollment/students-enrollment.component';
+import { StudentsEnrollmentComponent, AddStudentsEnrollmentDialog } from './students/students-enrollment/students-enrollment.component';
+import { LoggingService } from './LoggingService.service';
+import { DataServices } from './data.service';
+import { StudentsService } from './students/student.service';
 
 
 
@@ -37,7 +40,9 @@ import { StudentsEnrollmentComponent } from './students/students-enrollment/stud
     SubjectsTableComponent,
     AddSubjectDialog,
     UpdateSubjectDialog,
+
     StudentsEnrollmentComponent,
+    AddStudentsEnrollmentDialog
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,10 @@ import { StudentsEnrollmentComponent } from './students/students-enrollment/stud
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+  LoggingService,
+  DataServices,
+  StudentsService],
   bootstrap: [AppComponent],
   
 })

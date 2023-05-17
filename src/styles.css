@@ -31,11 +31,29 @@ body {
   cursor: pointer;
 }
 
-.delete-button:hover,
-.modify-button:hover,
-.add-button:hover {
+.delete-button:active:enabled,
+.modify-button:active:enabled,
+.add-button:active:enabled {
   background-color: #3e8e41;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
 }
+
+
+[disabled] {
+  opacity: .6;
+  cursor: default;
+}
+
+
+
+.delete-button:hover:enabled,
+.modify-button:hover:enabled,
+.add-button:hover:enabled {
+  background-color: #3e8e41;
+  
+}
+
 
 .cancel-button{
   width: 48%;

@@ -12,6 +12,10 @@ export class HeaderComponent {
   
   constructor(private location: Location) { }
 
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('dark-theme');
+  }
+
   goBack(): void {
     this.location.back();
   }

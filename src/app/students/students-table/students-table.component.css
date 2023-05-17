@@ -123,3 +123,22 @@ table {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.example-disabled {
+  display: inline-block;
+}

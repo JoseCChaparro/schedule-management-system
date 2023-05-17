@@ -1,14 +1,88 @@
-
-<div class="example-header" style="display: flex; flex-direction: row; justify-content: space-between;">
-    <mat-form-field style="flex: 1; float: left;">
-        <input matInput (keyup)="applyFilter($event)" [(ngModel)]="name" placeholder="Filter">
+<div class="example-header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+    
+    <mat-form-field style="flex: 1;">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
     </mat-form-field>
-    <div class="button-container" style="display: flex; justify-content: flex-end;">
-        <button class="delete-button">Eliminar</button>
-        <button class="modify-button" (click)="openUpdateDialog()">Modificar</button>
-        <button class="add-button" (click)="openAddDialog()">Agregar</button>
+
+    <div class="button-container" style="flex: 2;">
+
+        <!-- BOTONES NORMALES -->
+
+        <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+            tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados" [matTooltipShowDelay]="350"
+            [matTooltipHideDelay]="100">
+            Eliminar
+        </button>
+
+        <button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
+            tooltip="matTooltip" matTooltip="Modificar alumno seleccionado" [matTooltipShowDelay]="350"
+            [matTooltipHideDelay]="100">
+            Modificar
+        </button>
+
+        <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
+            [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+            Agregar
+        </button>
+
+        <!-- BOTONES CON MATERIAL DESIGN
+
+        <button mat-raised-button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+         color="primary" tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados"
+        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+            <mat-icon>remove</mat-icon>
+            Eliminar
+        </button>
+
+        <button mat-raised-button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
+         color="primary" tooltip="matTooltip" matTooltip="Modificar alumno seleccionado"
+        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+            <mat-icon>edit</mat-icon>
+            Modify
+        </button>
+
+        <button mat-raised-button class="add-button" color="primary" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
+        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+            <mat-icon>add</mat-icon>
+            Agregar
+        </button>
+
+        -->
+
+
     </div>
+
 </div>
+
+
+
+<!--section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+    <div layout="row" layout-align="start center" flex>
+        <mat-form-field style="flex: 1; float: left;">
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+        </mat-form-field>
+        <span flex></span>
+    </div>
+    <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+            tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados" [matTooltipShowDelay]="350"
+            [matTooltipHideDelay]="100">
+            Eliminar
+        </button>
+
+        <button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
+            tooltip="matTooltip" matTooltip="Modificar alumno seleccionado" [matTooltipShowDelay]="350"
+            [matTooltipHideDelay]="100">
+            Modificar
+        </button>
+
+        <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
+            [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+            Agregar
+        </button>
+</section-->
+
+
+
 
 <div class="example-container mat-elevation-z8">
 
@@ -20,7 +94,8 @@
                 <mat-checkbox (change)="selectAllCheckboxes($event)"></mat-checkbox>
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-                <mat-checkbox [(ngModel)]="row.selected"></mat-checkbox>
+                <mat-checkbox (change)="$event ? selectRow($event, row) : null"
+                    [(ngModel)]="row.selected"></mat-checkbox>
             </mat-cell>
         </ng-container>
 
