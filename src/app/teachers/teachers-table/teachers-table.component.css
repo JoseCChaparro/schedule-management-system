@@ -44,6 +44,7 @@ table {
   width: 100%;
 }
 
+
 .mat-column-checkbox {
   word-wrap: break-word !important;
   white-space: unset !important;
@@ -64,7 +65,7 @@ table {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 10% !important;
-  width: 10% !important;
+  width: 20% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -80,7 +81,7 @@ table {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 20% !important;
-  width: 20% !important;
+  width: 30% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -96,7 +97,7 @@ table {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 20% !important;
-  width: 20% !important;
+  width: 30% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -106,4 +107,24 @@ table {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.example-disabled {
+  display: inline-block;
 }

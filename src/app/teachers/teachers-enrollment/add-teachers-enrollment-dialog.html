@@ -1,0 +1,51 @@
+<header>
+    <h1 style="text-align: center;">
+        Agregar periodo de inscripcion
+    </h1>
+</header>
+
+<main>
+    <div mat-dialog-content style="width:100%; padding: 30px;">
+        <!-- Contenido del formulario -->
+        <h2>Fecha</h2>
+
+
+
+        <mat-form-field appearance="fill" style="display: flex;">
+            <mat-label>Ingresa el periodo de inscripcion</mat-label>
+            <mat-date-range-input [rangePicker]="rangePicker">
+                <input matStartDate placeholder="Fecha de inicio" >
+                <input matEndDate placeholder="Fecha de cierre">
+            </mat-date-range-input>
+            <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+            
+            <mat-date-range-picker #rangePicker>
+                <mat-date-range-picker-actions>
+                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+
+            
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput type="time" [(ngModel)]="time" placeholder="Inserte hora">
+        </mat-form-field>
+        
+        <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+            <button mat-button (click)="onNoClick()"
+                style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
+            <button mat-button (click)="onSaveClick()"
+                style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
+        </div>
+
+
+        <p>Selected range: {{range.value | json}}</p>
+
+
+
+    </div>
+
+</main>

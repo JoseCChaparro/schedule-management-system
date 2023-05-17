@@ -1,53 +1,45 @@
-<section class="container" style="padding: 20px;">
-    <header>
-        <h1 style="text-align: center;">
-            Agregar maestro {{data.name}}
-        </h1>
-    </header>
+<header>
+    <h1 style="text-align: center;">
+        Modificar maestro {{data.name}}
+    </h1>
+</header>
 
+<main>
 
-    <main>
+    <div mat-dialog-content style="width:100%; padding: 30px;">
 
         <h2>Matrícula</h2>
+
         <mat-form-field style="width: 100%;" appearance="fill">
-            <mat-label>Matrícula</mat-label>
-            <input matInput>
+            <mat-label>{{data.id}}</mat-label>
+            <input matInput [(ngModel)]="id" name="id" required>
         </mat-form-field>
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div style="flex: 1;">
                 <h2>Nombre</h2>
                 <mat-form-field style="width: 95%;" appearance="fill">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput>
+                    <mat-label>{{data.name}}</mat-label>
+                    <input matInput [(ngModel)]="name" name="name">
                 </mat-form-field>
             </div>
 
             <div style="flex: 1;">
                 <h2>Apellido</h2>
                 <mat-form-field style="width: 100%;" appearance="fill">
-                    <mat-label>Apellido</mat-label>
-                    <input matInput>
+                    <mat-label>{{data.surname}}</mat-label>
+                    <input matInput [(ngModel)]="surname" name="surname">
                 </mat-form-field>
             </div>
 
         </div>
         <div style="flex: 0;"></div>
-    </main>
 
-    <footer style="width: auto;">
-        <!-- Botones de acción -->
         <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
             <button mat-button (click)="onNoClick()"
                 style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
             <button mat-button (click)="onSaveClick()"
                 style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
         </div>
-    </footer>
-</section>
+    </div>
 
-
-
-
-<!--[(ngModel)]="data.name"-->
-
-<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
+</main>

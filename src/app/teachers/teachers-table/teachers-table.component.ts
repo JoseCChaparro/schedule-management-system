@@ -3,47 +3,39 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Student } from '../student.model';
-import { StudentsService } from '../student.service';
+import { Teacher } from '../teacher.model';
+import { TeachersService } from '../teacher.service';
 
 
 @Component({
-  selector: 'app-students-table',
-  templateUrl: './students-table.component.html',
-  styleUrls: ['./students-table.component.css']
+  selector: 'app-teachers-table',
+  templateUrl: './teachers-table.component.html',
+  styleUrls: ['./teachers-table.component.css']
 })
 
-export class StudentsTableComponent {
-  title = 'Alumnos';
+export class TeachersTableComponent {
+  title = 'Maestros';
 
-  
-
-  displayedColumns = ['checkbox', 'id', 'name', 'surname', 'course', 'status'];
-  dataSource: MatTableDataSource<Student>;
+  displayedColumns = ['checkbox', 'id', 'name', 'surname'];
+  dataSource: MatTableDataSource<Teacher>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
 
-  students: Student[] = [];
+  teachers: Teacher[] = [];
 
-  studentSelected!: Student;
+  teacherSelected!: Teacher;
 
   modifyButtonDisabled: boolean = true;
   deleteButtonDisabled: boolean = true;
 
-  constructor(public dialog: MatDialog, private studentsService: StudentsService) {
+  constructor(public dialog: MatDialog, private teachersService: TeachersService) {
     // Assign the data to the data source for the table to render
-    this.students = this.studentsService.students;
-    this.dataSource = new MatTableDataSource(this.students);
+    this.teachers = this.teachersService.teachers;
+    this.dataSource = new MatTableDataSource(this.teachers);
   }
-  /*
-  ngOnInit(): void {
-    this.students = this.studentsService.students;
-    
-  }
-  */
- 
+
 
   /**
    * Set the paginator and sort after the view init since this component will
@@ -53,7 +45,7 @@ export class StudentsTableComponent {
     this.paginator.pageSize = 10;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.paginator._intl.itemsPerPageLabel = 'Alumnos por página';
+    this.paginator._intl.itemsPerPageLabel = 'Maestros por página';
     this.paginator._intl.nextPageLabel = 'Siguiente';
     this.paginator._intl.previousPageLabel = 'Anterior';
   }
@@ -69,95 +61,96 @@ export class StudentsTableComponent {
   selectAllCheckboxes(event: any) {
     this.dataSource.data.forEach(row => row.selected = event.checked);
     this.checkModifyButton();
-    this.checkDeleteButton();
+    if (this.countCheckedRows() == 0) {
+      this.deleteButtonDisabled = true;
+    } else {
+      this.deleteButtonDisabled = false;
+    }
 
   }
-
-
-
 
   countCheckedRows() {
     return this.dataSource.data.filter(row => row.selected).length;
   }
 
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(AddStudentDialog, {
-      data: { name: '', sourname: '', course: '', status: '', color: '', selected: false, id: '' },
+    const dialogRef = this.dialog.open(AddTeacherDialog, {
+      data: { name: '', sourname: '', selected: false, id: '' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The add dialog was closed');
       console.log(result);
       if(result != undefined){
-        this.onStudentAdded(result);
+        this.onTeacherAdded(result);
       }
     });
   }
 
-  openUpdateDialog(studentToBeUpdated: Student): void {
-    console.log("from update dialog studentToBeUpdated");
-    console.log(studentToBeUpdated);
+  openUpdateDialog(teacherToBeUpdated: Teacher): void {
+    console.log("From update dialog teacherToBeUpdated");
+    console.log(teacherToBeUpdated);
 
-    const dialogRef = this.dialog.open(UpdateStudentDialog, {
-      data: studentToBeUpdated,
+    const dialogRef = this.dialog.open(UpdateTeacherDialog, {
+      data: teacherToBeUpdated,
     });
 
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The update dialog was closed');
       console.log(result);
-      this.onStudentUpdated(result);
+      this.onTeacherUpdated(result);
     });
   }
 
   deleteSelectedRows() {
     let SelectedRows = this.dataSource.data.filter(row => row.selected);
     SelectedRows.forEach((row) => {
-      this.onStudentDeleted(row.id);
+      this.onTeacherDeleted(row.id);
     });
 
     this.refreshTable();
     this.checkModifyButton();
-    this.checkDeleteButton();
-
+    if (this.countCheckedRows() == 0) {
+      this.deleteButtonDisabled = true;
+    }
   }
 
   refreshTable() {
-    this.students = this.studentsService.students;
-    this.dataSource = new MatTableDataSource(this.students);
+    this.teachers = this.teachersService.teachers;
+    this.dataSource = new MatTableDataSource(this.teachers);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
   }
 
-  onStudentAdded(student: Student) {
-    this.studentsService.addStudent(student);
+  onTeacherAdded(teacher: Teacher) {
+    this.teachersService.addTeacher(teacher);
     this.refreshTable();
     this.checkModifyButton();
   }
 
 
-  onStudentUpdated(student: Student) {
-    console.log("antes de mandar el student al servicio:", student);
-    this.studentsService.updateStudent(student);
+  onTeacherUpdated(teacher: Teacher) {
+    this.teachersService.updateTeacher(teacher);
     this.checkModifyButton();
     this.refreshTable();
   }
 
-  onStudentDeleted(id: string) {
-    this.studentsService.deleteStudent(id);
+  onTeacherDeleted(id: string) {
+    this.teachersService.deleteTeacher(id);
   }
 
-  onFindStudent(id: string) {
-    this.studentsService.findStudent(id);
+  onFindTeacher(id: string) {
+    this.teachersService.findTeacher(id);
   }
 
-  selectRow($event: any, dataSource: Student) {
+  selectRow($event: any, dataSource: Teacher) {
     // console.log($event.checked);
     if ($event.checked) {
       console.log("checked");
       console.log(dataSource);
-      this.studentSelected = dataSource;
+      this.teacherSelected = dataSource;
     }
 
     this.checkModifyButton();
@@ -167,12 +160,12 @@ export class StudentsTableComponent {
 
   checkModifyButton() {
     if (this.countCheckedRows() > 1 || this.countCheckedRows() == 0) {
-      this.studentSelected = new Student('', '', '', '', '', '', false);
+      this.teacherSelected = new Teacher('', '', '', true);
       this.modifyButtonDisabled = true;
     }
     if (this.countCheckedRows() == 1) {
       this.modifyButtonDisabled = false;
-      this.studentSelected = this.dataSource.data.filter(row => row.selected)[0];
+      this.teacherSelected = this.dataSource.data.filter(row => row.selected)[0];
     }
   }
 
@@ -190,22 +183,19 @@ export class StudentsTableComponent {
 
 
 @Component({
-  selector: 'add-student-dialog',
-  templateUrl: 'add-student-dialog.html',
+  selector: 'add-teacher-dialog',
+  templateUrl: 'add-teacher-dialog.html',
 })
-export class AddStudentDialog {
+export class AddTeacherDialog {
   id: string = '';
   name: string = '';
   surname: string = '';
-  course: string = '';
-  status: string = '';
-  color: string = '';
   selected: boolean = false;
 
 
   constructor(
-    public dialogRef: MatDialogRef<AddStudentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Student
+    public dialogRef: MatDialogRef<AddTeacherDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Teacher
   ) { }
 
   onNoClick(): void {
@@ -215,48 +205,39 @@ export class AddStudentDialog {
   onSaveClick(): void {
 
 
-    this.color = this.status === 'inscrito' ? 'green' : 'red';
+    //this.color = this.status === 'inscrito' ? 'green' : 'red';
 
-    var student: Student = {
+    var teacher: Teacher = {
       id: this.id,
       name: this.name,
       surname: this.surname,
-      course: this.course,
-      status: this.status,
-      color: this.color,
       selected: this.selected
     }
 
 
-    this.dialogRef.close(student);
+    this.dialogRef.close(teacher);
   }
 
 
 }
 
 @Component({
-  selector: 'update-student-dialog',
-  templateUrl: 'update-student-dialog.html',
+  selector: 'update-teacher-dialog',
+  templateUrl: 'update-teacher-dialog.html',
 })
-export class UpdateStudentDialog {
+export class UpdateTeacherDialog {
   id: string = '';
   name: string = '';
   surname: string = '';
-  course: string = '';
-  status: string = '';
-  color: string = '';
   selected: boolean = true;
 
   constructor(
-    public dialogRef: MatDialogRef<UpdateStudentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Student) 
+    public dialogRef: MatDialogRef<UpdateTeacherDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Teacher)
     {
     this.id = data.id;
     this.name = data.name;
     this.surname = data.surname;
-    this.course = data.course;
-    this.status = data.status;
-    this.color = data.color;
     this.selected = data.selected;
   }
 
@@ -266,19 +247,16 @@ export class UpdateStudentDialog {
 
   onSaveClick(): void {
     console.log("Saludos desde onSaveClick");
-    this.color = this.status === 'inscrito' ? 'green' : 'red';
+    //this.color = this.status === 'inscrito' ? 'green' : 'red';
 
-    var student: Student = {
+    var teacher: Teacher = {
       id: this.id,
       name: this.name,
       surname: this.surname,
-      course: this.course,
-      status: this.status,
-      color: this.color,
       selected: this.selected
     }
 
-    this.dialogRef.close(student);
+    this.dialogRef.close(teacher);
   }
 
 }
