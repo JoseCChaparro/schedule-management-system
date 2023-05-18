@@ -17,4 +17,4 @@ This repository contains the code files for a schedule management system, where 
 ## Authors
 
 - [@JoseCChaparro](https://www.github.com/JoseCChaparro)
-
+- [@LuisRaulChacon](https://github.com/LuisRaulChacon)
