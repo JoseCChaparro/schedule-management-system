@@ -1,0 +1,8 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 100vh; /* This will make the parent div take up the entire viewport height */
+  }
+  
+  

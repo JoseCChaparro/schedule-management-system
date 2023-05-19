@@ -12,10 +12,13 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { TeachersTableComponent, AddTeacherDialog, UpdateTeacherDialog } from './teachers/teachers-table/teachers-table.component';
 import { TeachersEnrollmentComponent, AddTeachersEnrollmentDialog } from './teachers/teachers-enrollment/teachers-enrollment.component';
 
-import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects-table/subjects-table.component';
+import { SubjectsComponent } from './subjects/subjects.component';
+import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects/subjects-table/subjects-table.component';
+import { SubjectsEnrollmentComponent, AddSubjectsEnrollmentDialog } from './subjects/subjects-enrollment/subjects-enrollment.component';
 
 //Imorts de la tabla
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
+
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
@@ -24,15 +27,18 @@ import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HeaderComponent } from './header/header.component';
-import { StudentsEnrollmentComponent, AddStudentsEnrollmentDialog } from './students/students-enrollment/students-enrollment.component';
+import { StudentsEnrollmentComponent, AddStudentsEnrollmentDialog, UpdateStudentsEnrollmentDialog } from './students/students-enrollment/students-enrollment.component';
 
 //Services
 import { LoggingService } from './LoggingService.service';
 import { DataServices } from './data.service';
 import { StudentsService } from './students/student.service';
 import { TeachersService } from './teachers/teacher.service';
+import { SubjectsService } from './subjects/subject.service';
 
-
+//Calendar
+import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -44,6 +50,7 @@ import { TeachersService } from './teachers/teacher.service';
     UpdateStudentDialog,
     StudentsEnrollmentComponent,
     AddStudentsEnrollmentDialog,
+    UpdateStudentsEnrollmentDialog,
 
     MainMenuComponent,
     HeaderComponent,
@@ -55,9 +62,13 @@ import { TeachersService } from './teachers/teacher.service';
     TeachersEnrollmentComponent,
     AddTeachersEnrollmentDialog,    
 
+    SubjectsComponent,
     SubjectsTableComponent,
     AddSubjectDialog,
     UpdateSubjectDialog,
+    SubjectsEnrollmentComponent,
+    AddSubjectsEnrollmentDialog,
+
 
   ],
   imports: [
@@ -66,13 +77,15 @@ import { TeachersService } from './teachers/teacher.service';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule, ScheduleModule, RecurrenceEditorModule
   ],
   providers: [
   LoggingService,
   DataServices,
   StudentsService,
-  TeachersService],
+  TeachersService,
+  SubjectsService],
   bootstrap: [AppComponent],
   
 })

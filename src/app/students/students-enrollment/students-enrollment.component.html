@@ -1,11 +1,32 @@
 <div class="button-container" style="display: flex; justify-content: flex-end; flex: auto;">
-    <button class="delete-button green-button" disabled>Eliminar</button>
-    <button class="modify-button green-button" disabled>Modificar</button>
-    <button class="add-button green-button" (click)="openAddDialog()">Agregar</button>
+    <button class="delete-button green-button" [disabled]="!isThereEnrollmentPeriod()" (click)="onDeletePeriod()">Eliminar</button>
+    <button class="modify-button green-button" [disabled]="!isThereEnrollmentPeriod()" (click)="openUpdateDialog()" >Modificar</button>
+    <button class="add-button green-button" (click)="openAddDialog()">Establecer</button>
 </div>
 
-
-
-<p style="font-size: 50px;">No hay un periodo de tiempo establecido para que los maestros asignen su horario de
+<p style="font-size: 50px;" *ngIf="dateRange == undefined">No hay un periodo de tiempo establecido para que los maestros
+    asignen su horario de
     disponibilidad, agregue uno.</p>
 
+<div *ngIf="isThereEnrollmentPeriod()">
+    <header>
+        <h1>Periodo de asignación de horarios</h1>
+    </header>
+    <p>
+        <span style="font-size: 50px;">{{dateRange.start | date:'dd/MM/yyyy'}} - {{dateRange.end | date:'dd/MM/yyyy'}}</span>
+    </p>
+</div>
+
+<div class="parent" *ngIf="isThereEnrollmentPeriod()" (onPopupOpen)="onPopupOpen($event)">
+    <ejs-schedule width="100%" height="650px" [eventSettings]="eventSettings">
+        <e-views>
+            <e-view option="Month" [displayDate]="displayDate" [numberOfWeeks]="4"></e-view>
+        </e-views>
+    </ejs-schedule>
+</div>
+
+<!--div class="parent">
+    <ejs-schedule width='100%' height='650px' [selectedDate]="selectedDate" [eventSettings]="eventSettings"
+        [(currentView)]="currentView" (eventRendered)="onEventRendered($event)">
+    </ejs-schedule>
+</div-->

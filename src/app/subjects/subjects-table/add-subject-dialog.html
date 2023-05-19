@@ -1,0 +1,104 @@
+<header>
+    <h1 style="text-align: center;">
+        Agregar Materia
+    </h1>
+</header>
+
+<main>
+    <div mat-dialog-content style="width:100%; padding: 30px;">
+        <form #f="ngForm" (ngSubmit)="f.form.valid  && onSaveClick()">
+
+            <!-- Contenido del formulario -->
+                           
+            <h2>Clave de materia</h2>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Clave de materia</mat-label>
+                <input matInput [(ngModel)]="id" name="id" required>
+            </mat-form-field> 
+
+            <h2>Nombre</h2>
+            <mat-form-field style="width: 95%;" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput [(ngModel)]="name" name="name">
+            </mat-form-field>
+            
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            
+                <div style="flex: 1;">
+                    <h2>Creditos</h2>
+                    <mat-form-field style="width: 100%;" appearance="fill">
+                        <mat-label>Creditos</mat-label>
+                        <input matInput [(ngModel)]="credits" name="credits">
+                    </mat-form-field>
+                </div>
+
+                <div style="flex: 1;">
+                    <h2>Requerimientos</h2>
+                    <mat-form-field style="width: 100%;" appearance="fill">
+                        <mat-label>Requerimientos</mat-label>
+                        <mat-select [formControl]="courses" multiple [(ngModel)]="requirements" name="requirements">
+                            <mat-option *ngFor="let c of coursesList" [value]="c">{{c}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div style="flex: 0;"></div>
+
+            <!-- Botones de acción -->
+            <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+                <button mat-button (click)="onNoClick()"
+                    style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
+                <button mat-button (click)="onSaveClick()"
+                    style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+</main>
+
+
+<!--div mat-dialog-content style="width:100%; padding: 30px;">
+    <h2>Clave de materia</h2>
+    <mat-form-field style="width: 100%;" appearance= "fill">
+        <mat-label>Clave de materia</mat-label>
+        <input matInput [(ngModel)]="id" name="id" required>
+    </mat-form-field>
+
+    <h2>Nombre</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="name" name="name">
+    </mat-form-field>
+
+
+    <div style="flex: 0;"></div>
+
+    <h2>Créditos</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Créditos</mat-label>
+        <input matInput [(ngModel)]="credits" name="credits">
+    </mat-form-field>
+
+    <h2>Requisitos</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Requisitos</mat-label>
+      <mat-select [ngModel]="requirements" name="requirements">
+        <mat-option value="finanzas">Finanzas Corporativas</mat-option>
+        <mat-option value="derecho">Derecho Mercantil</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+        <button mat-button  (click)="onNoClick()" style="width: 48%; color: white; background-color: crimson;">Cancelar</button>
+        <button mat-button  (click)="onSaveClick()" style="width: 48%; color: white; background-color: green; margin-left:10px">Guardar</button>
+    </div>
+</div>
+
+
+
+
+<!--[(ngModel)]="data.name"-->
+
+<!--button mat-button [mat-dialog-close]="data.animal"></button> cdkFocusInitial>Ok</button-->
