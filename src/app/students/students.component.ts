@@ -9,7 +9,12 @@ import { ThemePalette } from '@angular/material/core';
 export class StudentsComponent {
   title: string = "Alumnos";
   background: ThemePalette = undefined;
+  isLightBool: boolean = true;
 
   constructor() { }
+
+  isLight() {
+    return this.isLightBool;
+  }
 
 }

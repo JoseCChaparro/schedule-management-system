@@ -265,7 +265,8 @@ export class UpdateStudentDialog {
   }
 
   onSaveClick(): void {
-    console.log("Saludos desde onSaveClick");
+    console.log("Saludos desde en student-table component onSaveClick");
+    console.log(this.id);
     this.color = this.status === 'inscrito' ? 'green' : 'red';
 
     var student: Student = {
@@ -277,6 +278,8 @@ export class UpdateStudentDialog {
       color: this.color,
       selected: this.selected
     }
+
+    console.log("id nuevo: ", student.id);
 
     this.dialogRef.close(student);
   }

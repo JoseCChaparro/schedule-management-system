@@ -4,12 +4,14 @@ import { StudentsComponent } from './students/students.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { SubjectsComponent } from './subjects/subjects.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: "", component: MainMenuComponent },
   { path: "alumnos", component: StudentsComponent },
   { path: "maestros", component: TeachersComponent},
   { path: "materias", component: SubjectsComponent},
+  { path: "cursos", component: CoursesComponent},
   { path: "**", redirectTo: "" }
 ];
 

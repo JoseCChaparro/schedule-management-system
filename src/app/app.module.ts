@@ -16,6 +16,10 @@ import { SubjectsComponent } from './subjects/subjects.component';
 import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects/subjects-table/subjects-table.component';
 import { SubjectsEnrollmentComponent, AddSubjectsEnrollmentDialog } from './subjects/subjects-enrollment/subjects-enrollment.component';
 
+import { CoursesComponent } from './courses/courses.component';
+import { CoursesTableComponent, AddCourseDialog, UpdateCourseDialog } from './courses/courses-table/courses-table.component';
+
+
 //Imorts de la tabla
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 
@@ -35,6 +39,7 @@ import { DataServices } from './data.service';
 import { StudentsService } from './students/student.service';
 import { TeachersService } from './teachers/teacher.service';
 import { SubjectsService } from './subjects/subject.service';
+import { CoursesService } from './courses/course.service';
 
 //Calendar
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
@@ -69,6 +74,11 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     SubjectsEnrollmentComponent,
     AddSubjectsEnrollmentDialog,
 
+    CoursesComponent,
+    CoursesTableComponent,
+    AddCourseDialog,
+    UpdateCourseDialog,
+
 
   ],
   imports: [
@@ -85,7 +95,8 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
   DataServices,
   StudentsService,
   TeachersService,
-  SubjectsService],
+  SubjectsService,
+  CoursesService],
   bootstrap: [AppComponent],
   
 })

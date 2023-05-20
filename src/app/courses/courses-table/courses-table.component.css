@@ -63,8 +63,8 @@ table {
 .mat-column-id {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 12% !important;
+  width: 15% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -76,7 +76,7 @@ table {
   hyphens: auto;
 }
 
-.mat-column-name {
+.mat-column-subject {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 20% !important;
@@ -92,7 +92,7 @@ table {
   hyphens: auto;
 }
 
-.mat-column-surname {
+.mat-column-teacher {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 20% !important;
@@ -108,7 +108,39 @@ table {
   hyphens: auto;
 }
 
-.mat-column-status {
+.mat-column-career {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 14% !important;
+  width: 14% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-semester {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 14% !important;
+  width: 14% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-salon {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 14% !important;
@@ -125,6 +157,7 @@ table {
 }
 
 .example-button-row button,
+/*
 .example-button-row a {
   margin-right: 8px;
   margin-left: 8px;
@@ -137,13 +170,38 @@ table {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-}
+}*/
+
 
 .example-disabled {
   display: inline-block;
 }
 
-.mat-success {
-  background-color: black;
-  color: #fff;
+.view-button{
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #000989;
+  color: white;
+  font-size: 16px;
+}
+
+.delete-button{
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #810000;
+  color: white;
+}
+
+.modify-button{
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #615900;
+  color: white;
+}
+
+.add-button{
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #007c29;
+  color: white;
 }

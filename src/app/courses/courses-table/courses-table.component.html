@@ -1,0 +1,120 @@
+<div class="example-header"
+  style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+  <mat-form-field style="flex: 1;">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+  </mat-form-field>
+
+
+  <div class="button-container" style="flex: 2;">
+
+    <!-- BOTONES NORMALES -->
+
+    <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
+      matTooltip="Eliminar curso/s seleccionados" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+      Eliminar
+    </button>
+
+    <button class="view-button" (click)="openViewDialog(courseSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Ver horario del curso seleccionado" [matTooltipShowDelay]="350"
+      [matTooltipHideDelay]="100">
+      Ver horario del curso
+    </button>
+
+
+    <button class="modify-button" (click)="openUpdateDialog(courseSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Modificar curso seleccionado" [matTooltipShowDelay]="350"
+      [matTooltipHideDelay]="100">
+      Modificar
+    </button>
+
+    <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar curso"
+      [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+      Agregar
+    </button>
+
+
+  </div>
+</div>
+<!--button mat-raised-button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+           color="primary" tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados"
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+              <mat-icon>remove</mat-icon>
+              Eliminar
+          </button>
+
+          <button mat-raised-button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
+           color="primary" tooltip="matTooltip" matTooltip="Modificar alumno seleccionado"
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+              <mat-icon>edit</mat-icon>
+              Modify
+          </button>
+
+          <button mat-raised-button class="add-button" color="primary" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+              <mat-icon>add</mat-icon>
+              Agregar
+          </button-->
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="checkbox">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="selectAllCheckboxes($event)"></mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (change)="$event ? selectRow($event, row) : null" [(ngModel)]="row.selected"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Clave del curso </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="subject">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Materia </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.subject}} </mat-cell>
+    </ng-container>
+
+    <!-- Surname Column -->
+    <ng-container matColumnDef="teacher">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Maestro </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.teacher}} </mat-cell>
+    </ng-container>
+
+    <!-- Course Column -->
+    <ng-container matColumnDef="career">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Carrera </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.career}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="semester">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Semestre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.semester}} </mat-cell>
+    </ng-container>
+
+    <!-- Salon Column -->
+    <ng-container matColumnDef="salon">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Salon </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.salon}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+        Use of this source code is governed by an MIT-style license that
+        can be found in the LICENSE file at http://angular.io/license -->
