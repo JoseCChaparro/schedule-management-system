@@ -45,6 +45,10 @@ import { CoursesService } from './courses/course.service';
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
+//login
+import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login/login-form/login-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +82,9 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     CoursesTableComponent,
     AddCourseDialog,
     UpdateCourseDialog,
+
+    LoginComponent,
+    LoginFormComponent,
 
 
   ],

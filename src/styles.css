@@ -80,3 +80,19 @@ body {
   margin-left:10px;
   overflow: auto;
 }
+
+.mat-card-title {
+  font-size: 24px;
+}
+
+.mat-input-element:focus {
+  caret-color: green;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: green;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: green;
+}

@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 export class HeaderComponent {
   @Input() title!: string;
   @Input() showBackButton: boolean = true;
+  @Input() showLogoutButton: boolean = true;
   
   constructor(private location: Location) { }
 
@@ -18,5 +19,12 @@ export class HeaderComponent {
 
   goBack(): void {
     this.location.back();
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('role');
+    localStorage.removeItem('id');
   }
 }

@@ -1,22 +1,30 @@
 <header class="header">
     <h1>
-        <button mat-icon-button class="back-button" matTooltip="Atrás" *ngIf="showBackButton" (click)="goBack()">
+        <!--button mat-icon-button class="back-button" matTooltip="Atrás" *ngIf="showBackButton" (click)="goBack()">
             <mat-icon>arrow_back</mat-icon>
         </button>
         <mat-label class="title">{{title}}</mat-label>
+
+        <button mat-icon-button class="back-button" *ngIf="showLogoutButton" matTooltip="Cerrar sesión" (click)="logout()" routerLink="/">
+            <mat-icon>logout</mat-icon>
+        </button-->
         <!--button (click)="toggleDarkTheme()" style="position: fixed;" >Toggle dark theme</button-->
 
 
-        <!--mat-toolbar color="primary">
+        <mat-toolbar color="primary">
             <mat-toolbar-row>
                 <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
                     matTooltip="Atrás" *ngIf="showBackButton" (click)="goBack()">
                     <mat-icon>arrow_back</mat-icon>
                 </button>
                 <mat-label class="title">{{title}}</mat-label>
-                <span class="example-spacer"></span>
+                <span class="flexExpand"></span>
+                <button mat-icon-button class="alignRight" *ngIf="showLogoutButton" matTooltip="Cerrar sesión" (click)="logout()" routerLink="/">
+                    <mat-icon>logout</mat-icon>
+                </button>                
+
             </mat-toolbar-row>
-        </mat-toolbar-->
+        </mat-toolbar>
 
 
 
