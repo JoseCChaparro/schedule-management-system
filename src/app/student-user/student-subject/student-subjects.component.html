@@ -1,0 +1,116 @@
+<div class="example-header" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  ">
+  <mat-form-field style="flex: 1">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" />
+  </mat-form-field>
+
+  <div class="button-container" style="flex: 2">
+    <!-- BOTONES NORMALES 
+
+    <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
+      matTooltip="Eliminar materia/s seleccionada/s" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+      Eliminar
+    </button>
+
+    <button class="modify-button" (click)="openUpdateDialog(subjectSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Modificar materia/s seleccionada/s" [matTooltipShowDelay]="350"
+      [matTooltipHideDelay]="100">
+      Modificar
+    </button>
+
+    <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar materia"
+      [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+      Agregar
+    </button>
+
+    -->
+
+    <!-- BOTONES CON MATERIAL DESIGN
+
+    <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
+       [disabled]="deleteButtonDisabled">
+      <mat-icon>remove</mat-icon>
+      Eliminar
+    </button>
+
+    <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
+       [disabled]="modifyButtonDisabled">
+      <mat-icon>edit</mat-icon>
+      Modificar
+    </button>
+
+    <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;">
+      <mat-icon>add</mat-icon>
+      Agregar
+    </button>
+    -->
+
+    
+  </div>
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="checkbox">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="selectAllCheckboxes($event)"></mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (change)="$event ? selectRow($event, row) : null" [(ngModel)]="row.selected"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Clave de materia
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Nombre
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+    </ng-container>
+
+    <!-- Credits Column -->
+    <ng-container matColumnDef="credits">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Creditos
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.credits }} </mat-cell>
+    </ng-container>
+
+    <!-- Requirements Column -->
+    <ng-container matColumnDef="requirements">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Requerimientos
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <ng-container *ngFor="let r of row.requirements">
+          <br />
+          {{r}}
+          <br /> <!-- Use br if you want to display the roles vertically -->
+        </ng-container>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

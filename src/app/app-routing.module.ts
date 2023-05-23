@@ -7,6 +7,8 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { CoursesComponent } from './courses/courses.component';
 
+import { StudentUserComponent } from './student-user/student-user.component';
+
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "admin-menu", component: MainMenuComponent },
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: "maestros", component: TeachersComponent},
   { path: "materias", component: SubjectsComponent},
   { path: "cursos", component: CoursesComponent},
+  { path: "alumno", component: StudentUserComponent},
   { path: "**", redirectTo: "" }
 ];
 

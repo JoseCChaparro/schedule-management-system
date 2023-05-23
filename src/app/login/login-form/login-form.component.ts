@@ -29,7 +29,7 @@ export class LoginFormComponent {
       this.router.navigate(['admin-menu']);
     } 
     else if (this.form.controls['username'].value.value === 'alumno'){
-      this.router.navigate(['alumno-menu']);
+      this.router.navigate(['alumno']);
     }
     else if (this.form.controls['username'].value.value === 'maestro'){
       this.router.navigate(['maestro-menu']);
@@ -37,7 +37,7 @@ export class LoginFormComponent {
     else {
       console.log('no es admin');
     }
-    
+
   }
   @Input() error: string = '';
 

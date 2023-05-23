@@ -20,6 +20,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { CoursesTableComponent, AddCourseDialog, UpdateCourseDialog, ViewCourseDialog } from './courses/courses-table/courses-table.component';
 
 
+
+
 //Imorts de la tabla
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 
@@ -50,6 +52,12 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
 //login
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+
+//StudentSubject
+import { StudentUserComponent } from './student-user/student-user.component';
+import { StudentSubjectService } from './student-user/student-subject/student-subject.service';
+import { StudentSubjectComponent } from './student-user/student-subject/student-subjects.component';
+import { StudentScheduleComponent } from './student-user/student-schedule/student-schedule.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +98,9 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     LoginComponent,
     LoginFormComponent,
 
-
+    StudentUserComponent,
+    StudentSubjectComponent,
+    StudentScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +120,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
   CoursesService,
   ThemeService,
   HorarioService,
+  StudentSubjectService,
   ],
   bootstrap: [AppComponent],
   

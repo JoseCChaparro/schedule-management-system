@@ -1,0 +1,21 @@
+<app-header [title]="title"></app-header>
+
+<mat-tab-group mat-stretch-tabs="true"  mat-align-tabs="center"  animationDuration="0ms" >
+    
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">insert_invitation</mat-icon>
+            <mat-label class="mat-tab-label" >Horario</mat-label>
+        </ng-template>
+        <app-student-schedule></app-student-schedule>
+    </mat-tab>
+    
+    <mat-tab>
+        <ng-template mat-tab-label >
+            <mat-icon class="tab-icon">list</mat-icon>
+            <mat-label class="mat-tab-label">Materias</mat-label>
+        </ng-template>
+        <app-student-subjects></app-student-subjects>
+    </mat-tab>
+
+</mat-tab-group>
