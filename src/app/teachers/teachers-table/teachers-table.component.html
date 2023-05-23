@@ -1,57 +1,55 @@
-<div class="example-header"
-  style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-
-  <mat-form-field style="flex: 1;">
+<div class="example-header" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  ">
+  <mat-form-field style="flex: 1">
     <mat-icon matPrefix>search</mat-icon>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" />
   </mat-form-field>
 
-  <div class="button-container" style="flex: 2;">
-
+  <div class="button-container" style="flex: 2">
     <!-- BOTONES NORMALES 
 
     <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
-      matTooltip="Eliminar maestro/s seleccionados" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+      matTooltip="Eliminar materia/s seleccionada/s" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
       Eliminar
     </button>
 
-    <button class="modify-button" (click)="openUpdateDialog(teacherSelected)" [disabled]="modifyButtonDisabled"
-      tooltip="matTooltip" matTooltip="Modificar maestro seleccionado" [matTooltipShowDelay]="350"
+    <button class="modify-button" (click)="openUpdateDialog(subjectSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Modificar materia/s seleccionada/s" [matTooltipShowDelay]="350"
       [matTooltipHideDelay]="100">
       Modificar
     </button>
 
-    <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar maestro"
+    <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar materia"
       [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
       Agregar
     </button>
+
     -->
 
-    <!-- BOTONES CON MATERIAL DESIGN -->
+    <!-- BOTONES CON MATERIAL DESIGN-->
 
     <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
-      (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" matTooltip="Eliminar maestro/s seleccionado/s">
+      (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled">
       <mat-icon>remove</mat-icon>
       Eliminar
     </button>
 
     <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
-      (click)="openUpdateDialog(teacherSelected)" [disabled]="modifyButtonDisabled"
-      matTooltip="Modificar maestro seleccionado">
+      (click)="openUpdateDialog(teacherSelected)" [disabled]="modifyButtonDisabled">
       <mat-icon>edit</mat-icon>
       Modificar
     </button>
 
     <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;"
-      (click)="openAddDialog()" matTooltip="Agregar maestro">
+      (click)="openAddDialog()">
       <mat-icon>add</mat-icon>
       Agregar
     </button>
-
-
-
   </div>
-
 </div>
 
 

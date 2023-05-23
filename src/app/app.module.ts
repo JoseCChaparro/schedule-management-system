@@ -59,6 +59,9 @@ import { StudentSubjectService } from './student-user/student-subject/student-su
 import { StudentSubjectComponent } from './student-user/student-subject/student-subjects.component';
 import { StudentScheduleComponent } from './student-user/student-schedule/student-schedule.component';
 
+//TeacherUser
+import { TeacherUserComponent } from './teacher-user/teacher-user.component';
+import { TeacherScheduleComponent } from './teacher-user/teacher-schedule/teacher-schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +104,9 @@ import { StudentScheduleComponent } from './student-user/student-schedule/studen
     StudentUserComponent,
     StudentSubjectComponent,
     StudentScheduleComponent,
+
+    TeacherUserComponent,
+    TeacherScheduleComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,11 +9,14 @@
     <div mat-dialog-content style="width:100%; padding: 30px;">
 
         <h2>Matrícula</h2>
+        <h1>Matricula: {{id}}</h1>
+        <br>
 
         <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label>{{data.id}}</mat-label>
             <input matInput [(ngModel)]="id" name="id" required>
         </mat-form-field>
+        
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div style="flex: 1;">
                 <h2>Nombre</h2>

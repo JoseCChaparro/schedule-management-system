@@ -8,6 +8,7 @@ import { SubjectsComponent } from './subjects/subjects.component';
 import { CoursesComponent } from './courses/courses.component';
 
 import { StudentUserComponent } from './student-user/student-user.component';
+import { TeacherUserComponent } from './teacher-user/teacher-user.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "materias", component: SubjectsComponent},
   { path: "cursos", component: CoursesComponent},
   { path: "alumno", component: StudentUserComponent},
+  { path: "maestro", component: TeacherUserComponent},
   { path: "**", redirectTo: "" }
 ];
 

@@ -18,11 +18,11 @@ export interface Element {
 
 
 @Component({
-  selector: 'app-student-schedule',
-  templateUrl: './student-schedule.component.html',
-  styleUrls: ['./student-schedule.component.css']
+  selector: 'app-teacher-schedule',
+  templateUrl: './teacher-schedule.component.html',
+  styleUrls: ['./teacher-schedule.component.css']
 })
-export class StudentScheduleComponent {
+export class TeacherScheduleComponent {
 
   background: ThemePalette = undefined;
   displayedColumns: string[] = ['demo-hora', 'demo-domingo', 'demo-lunes', 'demo-martes', 'demo-miercoles', 'demo-jueves', 'demo-viernes', 'demo-sabado'];
@@ -71,27 +71,27 @@ export class StudentScheduleComponent {
     let sundayTemp: string[] = [];
 
     this.courses.forEach(function (course: Course) {
-      if(course.semester==="8"){
+      if(course.teacher==="Vania Alvarez"){
         course.mondayHours.forEach(function (courseMondayHour: string) {
-          mondayTemp.push(courseMondayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          mondayTemp.push(courseMondayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.thursdayHours.forEach(function (courseThurdayHour: string) {
-          thursdayTemp.push(courseThurdayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          thursdayTemp.push(courseThurdayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.wednesdayHours.forEach(function (courseWednesayHour: string) {
-          wednesdayTemp.push(courseWednesayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          wednesdayTemp.push(courseWednesayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.tuesdayHours.forEach(function (courseTuesdayHour: string) {
-          tuesdayTemp.push(courseTuesdayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          tuesdayTemp.push(courseTuesdayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.fridayHours.forEach(function (courseFridayHour: string) {
-          fridayTemp.push(courseFridayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          fridayTemp.push(courseFridayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.saturdayHours.forEach(function (courseSaturdayHour: string) {
-          saturdayTemp.push(courseSaturdayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          saturdayTemp.push(courseSaturdayHour + " " + course.subject + " Salón " + course.salon);
         });
         course.sundayHours.forEach(function (courseSundayHour: string) {
-          sundayTemp.push(courseSundayHour + " " + course.subject + " " + course.teacher + " Salón " + course.salon);
+          sundayTemp.push(courseSundayHour + " " + course.subject + " Salón " + course.salon);
         });
       }
     });

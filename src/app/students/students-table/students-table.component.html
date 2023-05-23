@@ -1,57 +1,35 @@
-<div class="example-header"
-    style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-
-    <mat-form-field style="flex: 1;">
+<div class="example-header" style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  ">
+    <mat-form-field style="flex: 1">
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" />
     </mat-form-field>
 
-    <span class="flexExpand"></span>
-
-    <div class="button-container" style="flex: 1 1 auto;">
-
-        <!-- BOTONES NORMALES -->
-
-        <!-- button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
-             >
-            Eliminar
-        </button>
-
-        <button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled">
-            Modificar
-        </button>
-
-        <button class="add-button" (click)="openAddDialog()">
-            Agregar
-        </button-->
-
+    <div class="button-container" style="flex: 2">
         <!-- BOTONES CON MATERIAL DESIGN-->
 
         <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
-            (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
-            matTooltip="Eliminar alumno/s seleccionado">
+            (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled">
             <mat-icon>remove</mat-icon>
             Eliminar
         </button>
 
         <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
-            (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
-            matTooltip="Modificar alumno seleccionado">
+            (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled">
             <mat-icon>edit</mat-icon>
             Modificar
         </button>
 
         <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;"
-            (click)="openAddDialog()" matTooltip="Agregar un nuevo alumno">
+            (click)="openAddDialog()">
             <mat-icon>add</mat-icon>
             Agregar
         </button>
-
-
-
-
     </div>
-
 </div>
 
 

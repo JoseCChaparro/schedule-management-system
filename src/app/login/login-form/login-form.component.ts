@@ -32,7 +32,7 @@ export class LoginFormComponent {
       this.router.navigate(['alumno']);
     }
     else if (this.form.controls['username'].value.value === 'maestro'){
-      this.router.navigate(['maestro-menu']);
+      this.router.navigate(['maestro']);
     }
     else {
       console.log('no es admin');
