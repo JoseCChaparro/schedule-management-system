@@ -23,7 +23,10 @@
                 <mat-label class="title">{{title}}</mat-label>
                 <span class="flexExpand"></span>
                 <button mat-icon-button class="theme-button" (click)="toggleTheme()" matTooltip="Cambiar color">
-                    <mat-icon>invert_colors</mat-icon>
+                    <!--mat-icon>wb_sunny</mat-icon-->
+                    <mat-icon>
+                        brightness_medium
+                    </mat-icon>
                 </button>
                 <button mat-icon-button class="alignRight" *ngIf="showLogoutButton" (click)="logout()" routerLink="/"
                     matTooltip="Cerrar sesión">

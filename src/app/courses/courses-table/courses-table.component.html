@@ -2,6 +2,7 @@
   style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 
   <mat-form-field style="flex: 1;">
+    <mat-icon matPrefix>search</mat-icon>
     <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
   </mat-form-field>
 
@@ -10,23 +11,27 @@
 
     <!-- BOTONES NORMALES -->
 
-    <button mat-raised-button color="warn" class="delete-button" (click)="deleteSelectedRows()"
-      [disabled]="deleteButtonDisabled" tooltip="matTooltip" matTooltip="Eliminar curso/s seleccionados">
+    <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
+      (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" matTooltip="Eliminar curso/s seleccionado">
+      <mat-icon>remove</mat-icon>
       Eliminar
     </button>
 
-    <button mat-raised-button class="inspect-schedule-button"(click)="openViewDialog(courseSelected)"
+    <button mat-raised-button class="inspect-schedule-button" (click)="openViewDialog(courseSelected)"
       [disabled]="modifyButtonDisabled" tooltip="matTooltip" matTooltip="Ver horario del curso seleccionado">
-      Ver horario del curso
+      <mat-icon>event_note</mat-icon>
+      <mat-label>Ver Horario</mat-label>
     </button>
 
     <button mat-raised-button color="accent" class="modify-button" (click)="openUpdateDialog(courseSelected)"
       [disabled]="modifyButtonDisabled" tooltip="matTooltip" matTooltip="Modificar curso seleccionado">
+      <mat-icon>edit</mat-icon>
       Modificar
     </button>
 
     <button mat-raised-button color="primary" class="add-button" (click)="openAddDialog()" tooltip="matTooltip"
       matTooltip="Agregar curso">
+      <mat-icon>add</mat-icon>
       Agregar
     </button>
 

@@ -2,6 +2,7 @@
     style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 
     <mat-form-field style="flex: 1;">
+        <mat-icon matPrefix>search</mat-icon>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
     </mat-form-field>
 
@@ -27,13 +28,15 @@
         <!-- BOTONES CON MATERIAL DESIGN-->
 
         <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
-            (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" matTooltip="Eliminar alumno/s seleccionado">
+            (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+            matTooltip="Eliminar alumno/s seleccionado">
             <mat-icon>remove</mat-icon>
             Eliminar
         </button>
 
         <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
-            (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled" matTooltip="Modificar alumno seleccionado">
+            (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
+            matTooltip="Modificar alumno seleccionado">
             <mat-icon>edit</mat-icon>
             Modificar
         </button>

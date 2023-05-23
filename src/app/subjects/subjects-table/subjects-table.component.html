@@ -5,6 +5,7 @@
     align-items: center;
   ">
   <mat-form-field style="flex: 1">
+    <mat-icon matPrefix>search</mat-icon>
     <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" />
   </mat-form-field>
 
@@ -31,22 +32,23 @@
 
     <!-- BOTONES CON MATERIAL DESIGN-->
 
-        <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
-          >
-            <mat-icon>remove</mat-icon>
-            Eliminar
-        </button>
+    <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
+      (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled">
+      <mat-icon>remove</mat-icon>
+      Eliminar
+    </button>
 
-        <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;" (click)="openUpdateDialog(subjectSelected)" [disabled]="modifyButtonDisabled"
-           >
-            <mat-icon>edit</mat-icon>
-            Modificar
-        </button>
+    <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
+      (click)="openUpdateDialog(subjectSelected)" [disabled]="modifyButtonDisabled">
+      <mat-icon>edit</mat-icon>
+      Modificar
+    </button>
 
-        <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;" (click)="openAddDialog()"  >
-            <mat-icon>add</mat-icon>
-            Agregar
-        </button>
+    <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;"
+      (click)="openAddDialog()">
+      <mat-icon>add</mat-icon>
+      Agregar
+    </button>
   </div>
 </div>
 
@@ -93,7 +95,7 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
         <ng-container *ngFor="let r of row.requirements">
-          <br/>
+          <br />
           {{r}}
           <br /> <!-- Use br if you want to display the roles vertically -->
         </ng-container>
