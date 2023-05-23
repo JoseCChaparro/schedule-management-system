@@ -12,65 +12,77 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+
+/*
+schedule-management-system-primary-palette: map-merge(mat.$green-palette, ( contrast: (100: #000000,)));
+$schedule-management-system-primary: mat.define-palette(
+  $schedule-management-system-primary-palette,
+  $default: 100,
+  $lighter: 100,
+  $darker: 700,
+  $text: 500
+);
+ */
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$schedule-management-system-primary-palette: map-merge(mat.$green-palette, (contrast: (200: #030844, A100: rgba(0, 0, 0, 0.87), A700: rgba(0, 0, 0, 0.87), )));
+
+$schedule-management-system-primary-palette: map-merge(mat.$green-palette, (contrast: (200: rgb(13, 17, 55), A100: rgba(0, 0, 0, 0.87), A700: rgba(0, 0, 0, 0.87), )));
 $schedule-management-system-primary: mat.define-palette($schedule-management-system-primary-palette,
-        $default: 200,
-        $lighter: A100,
-        $darker: A700,
-        $text: 700);
+                $default: 200,
+                $lighter: A100,
+                $darker: A700,
+                $text: 700);
 
 $schedule-management-system-accent-palette: map-merge(mat.$amber-palette, (contrast: (A200: black, 50: black, A400: black, )));
 $schedule-management-system-accent: mat.define-palette($schedule-management-system-accent-palette,
-        $default: A200,
-        $lighter: 50,
-        $darker: A400,
-        $text: A100);
+                $default: A200,
+                $lighter: 50,
+                $darker: A400,
+                $text: A100);
 
 $schedule-management-system-warn-palette: map-merge(mat.$pink-palette, ());
 // The warn palette is optional (defaults to red).
 $schedule-management-system-warn: mat.define-palette($schedule-management-system-warn-palette,
-        $default: A200,
-        $lighter: 500,
-        $darker: 500,
-        $text: A700);
+                $default: A200,
+                $lighter: 500,
+                $darker: 500,
+                $text: A700);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 
-$schedule-management-system-primary-dark-palette: map-merge(mat.$light-green-palette, (contrast: (200: #030844, A100: rgba(0, 0, 0, 0.87), A700: rgba(0, 0, 0, 0.87), )));
+$schedule-management-system-primary-dark-palette: map-merge(mat.$light-green-palette, (contrast: (200: #030844, A100: rgba(0, 0, 0, 0.87), A700: rgba(0, 0, 0, 0.87), 100: white, )));
 $schedule-management-system-primary-dark: mat.define-palette($schedule-management-system-primary-dark-palette,
-        $default: 200,
-        $lighter: A100,
-        $darker: A700,
-        $text: 700);
+                $default: 200,
+                $lighter: A100,
+                $darker: A700,
+                $text: 100);
 
-$schedule-management-system-accent-dark-palette: map-merge(mat.$light-green-palette, (contrast: (A200: black, 50: black, A400: black, )));
+$schedule-management-system-accent-dark-palette: map-merge(mat.$light-green-palette, (contrast: (A200: black, 50: black, A400: black, 100: white, )));
 $schedule-management-system-accent-dark: mat.define-palette($schedule-management-system-accent-dark-palette,
-        $default: A200,
-        $lighter: 50,
-        $darker: A400,
-        $text: A100);
+                $default: A200,
+                $lighter: 50,
+                $darker: A400,
+                $text: 100);
 
 $schedule-management-system-warn-dark-palette: map-merge(mat.$red-palette, (contrast: (A100: black, 100: white, )));
 $schedule-management-system-warn-dark: mat.define-palette($schedule-management-system-warn-dark-palette,
-        $default: A100,
-        $lighter: 100,
-        $darker: A700,
-        $text: 100);
+                $default: A100,
+                $lighter: 100,
+                $darker: A700,
+                $text: 100);
 
 
 $schedule-management-system-theme: mat.define-light-theme((color: (primary: $schedule-management-system-primary,
-                accent: $schedule-management-system-accent,
-                warn: $schedule-management-system-warn,
-            )));
+                                accent: $schedule-management-system-accent,
+                                warn: $schedule-management-system-warn,
+                        )));
 
 $schedule-management-system-dark-theme: mat.define-dark-theme((color: (primary: $schedule-management-system-primary-dark,
-                accent: $schedule-management-system-accent-dark,
-                warn: $schedule-management-system-warn-dark,
-            )));
+                                accent: $schedule-management-system-accent-dark,
+                                warn: $schedule-management-system-warn-dark,
+                        )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -78,14 +90,14 @@ $schedule-management-system-dark-theme: mat.define-dark-theme((color: (primary: 
 @include mat.all-component-themes($schedule-management-system-theme);
 
 .light-theme {
-    @include mat.all-component-themes($schedule-management-system-theme);
-    background: #fff;
-    color: #222;
+        @include mat.all-component-themes($schedule-management-system-theme);
+        background: #fff;
+        color: #222;
 }
 
 .dark-theme {
-    @include mat.all-component-themes($schedule-management-system-dark-theme);
-    background: #222;
-    color: #fff;
+        @include mat.all-component-themes($schedule-management-system-dark-theme);
+        background: #222;
+        color: #fff;
 
 }

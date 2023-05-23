@@ -156,8 +156,8 @@ table {
   hyphens: auto;
 }
 
-.example-button-row button,
 /*
+.example-button-row button,
 .example-button-row a {
   margin-right: 8px;
   margin-left: 8px;
@@ -181,29 +181,25 @@ table {
   margin-right: 8px;
   margin-left: 8px;
   color: #f0fff3;
-  background-color: #000989;
-  font-size: 16px;
+  
 }
 
 .delete-button{
   margin-right: 8px;
   margin-left: 8px;
-  background-color: #810000;
-  color: white;
+  
 }
 
 .modify-button{
   margin-right: 8px;
   margin-left: 8px;
-  background-color: #615900;
-  color: white;
+  
 }
 
 .add-button{
   margin-right: 8px;
   margin-left: 8px;
-  background-color: #007c29;
-  color: white;
+  
 }
 
 .container {
