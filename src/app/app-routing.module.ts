@@ -9,7 +9,7 @@ import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "menu", component: MainMenuComponent },
+  { path: "admin-menu", component: MainMenuComponent },
   { path: "alumnos", component: StudentsComponent },
   { path: "maestros", component: TeachersComponent},
   { path: "materias", component: SubjectsComponent},
