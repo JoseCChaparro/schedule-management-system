@@ -1,13 +1,21 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
 @Injectable()
-export class ThemeService {
-  public currentTheme = new BehaviorSubject<string>('light');
-  currentTheme$ = this.currentTheme.asObservable();
+export class ThemeService{
 
-  setTheme(theme: string) {
-    console.log('haciendo el set theme pa con theme: ', theme);
-    this.currentTheme.next(theme);
-  }
+    @Output() buttonPressed = new EventEmitter<string>();
+
+    constructor(){
+
+    }
+
+    public onSetTheme(theme:string){
+        this.buttonPressed.emit(theme);
+    }
+
+    public getTheme(){
+        
+    }
+
+
 }

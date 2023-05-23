@@ -1,0 +1,12 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+
+.mat-mdc-raised-button.color-button{
+    background-color: green;
+    color: white;
+    border: 1px solid darkgreen;
+    &:hover{
+        background-color: blue;
+    }
+}

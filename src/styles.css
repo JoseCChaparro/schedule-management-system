@@ -10,6 +10,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 
+/*material succes button*/
+.mat-raised-button.mat-success {
+  background-color: green;
+  color: white;
+}
+
+.mat-raised-button.mat-success:hover {
+  background-color: darkgreen;
+}
+
+
 
 html,
 body {
@@ -27,13 +38,35 @@ body {
   margin-left: auto;
 }
 
-.delete-button,
-.modify-button,
+.delete-button{
+  margin-left: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: "warn";
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.modify-button{
+  margin-left: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: "accent";
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
 .add-button {
   margin-left: 10px;
   background-color: #4CAF50;
   border: none;
-  color: white;
+  color: "primary";
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -96,3 +129,12 @@ body {
 .mat-form-field.mat-focused .mat-form-field-label {
   color: green;
 }
+
+.flexExpand {
+  flex: 1 1 auto;
+}
+
+.alignRight {
+  justify-content: flex-end;
+}
+

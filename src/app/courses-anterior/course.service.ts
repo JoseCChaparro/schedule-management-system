@@ -18,32 +18,8 @@ export class CoursesService {
         career: "icc",
         semester: "8",
         students_quantity: "12",
-        salon: "20",
-        mondayHours: ["7:00", "8:00"],
-        tuesdayHours: ["7:00"],
-        wednesdayHours: ["7:00"],
-        thursdayHours: [],
-        fridayHours: [],
-        saturdayHours: [],
-        sundayHours: ["7:00"],
+        salon: "20"
     });
-    this.courses.push({
-      selected: false,
-      id: "2",
-      subject: "Ingenieria de Software de investigacion",
-      teacher: "Perla Cordero",
-      career: "icc",
-      semester: "8",
-      students_quantity: "12",
-      salon: "20",
-      mondayHours: ["8:00"],
-      tuesdayHours: ["10:00"],
-      wednesdayHours: [],
-      thursdayHours: ["7:00"],
-      fridayHours: [],
-      saturdayHours: [],
-      sundayHours: [],
-  });
     console.log(this.courses[0]);
     }
 

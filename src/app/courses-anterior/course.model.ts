@@ -1,4 +1,3 @@
-
 export class Course{
 
   /*
@@ -17,14 +16,7 @@ export class Course{
               public semester: string,
               public students_quantity: string,
               public salon: string,
-              public selected: boolean = false,
-              public mondayHours: string[],
-              public tuesdayHours: string[],
-              public wednesdayHours: string[],
-              public thursdayHours: string[],
-              public fridayHours: string[],
-              public saturdayHours: string[],
-              public sundayHours: string[]
+              public selected: boolean = false
               ){}
 
 }

@@ -1,1 +1,30 @@
-<h1>Sexo</h1>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<header>
+  <h1 style="text-align: center;">
+    Ver horario del curso
+  </h1>
+</header>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let date of datesInWeek; let indexDay = index" class="col">
+        <p style="size: 100%;"> {{getDateFormat(date)}}</p>
+        <div class="item" *ngFor="let hour of hours; let indexHour = index" fxLayout>
+
+          <ng-template [ngIf]="checkHourInCourse(date, hour)" [*ngIfElse="noEnHorario" ]>
+            <div>
+              <p>{{ hour }}</p>
+            </div>
+          </ng-template>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

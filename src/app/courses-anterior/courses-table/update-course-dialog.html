@@ -1,0 +1,74 @@
+<header>
+  <h1 style="text-align: center;">
+    Modificar curso
+  </h1>
+</header>
+
+<main>
+  <div style="display: flex; flex-direction: row; justify-content: space-between;">
+    <div style="flex: 1;">
+      <div mat-dialog-content style="width:60%; padding: 30px;">
+        <form #f="ngForm" (ngSubmit)="f.form.valid  && onSaveClick()">
+
+          <!-- Contenido del formulario -->
+          <h2>Clave del curso: {{id}}</h2>
+          <br>
+          <!--mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Clave del curso:</mat-label>
+            <input matInput [(ngModel)]="id" name="id" required>
+          </mat-form-field-->
+          <div style="flex: 1;">
+            <h2>Materia</h2>
+            <mat-form-field style="width: 95%;" appearance="fill">
+              <mat-label>Materia</mat-label>
+              <input matInput [(ngModel)]="subject" name="subject">
+            </mat-form-field>
+
+            <div style="flex: 1;">
+              <h2>Maestro</h2>
+              <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Maestro</mat-label>
+                <input matInput [(ngModel)]="teacher" name="teacher">
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div style="flex: 0;"></div>
+
+          <h2>Carrera</h2>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Carrera</mat-label>
+            <mat-select [(ngModel)]="career" name="career">
+              <mat-option value="icc">Lic. Derecho</mat-option>
+              <mat-option value="iif">Ing. Informática</mat-option>
+              <mat-option value="ie">Ing. Electrónica</mat-option>
+              <mat-option value="icv">Ing. Civil</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <h2>Semestre</h2>
+          <mat-form-field style="width: 95%;" appearance="fill">
+            <mat-label>Semestre</mat-label>
+            <input matInput [(ngModel)]="semester" name="semester">
+          </mat-form-field>
+
+          <h2>Salon</h2>
+          <mat-form-field style="width: 95%;" appearance="fill">
+            <mat-label>Salon</mat-label>
+            <input matInput [(ngModel)]="salon" name="salon">
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <div style="flex: 1;">
+      <h2>Horario</h2>
+    </div>
+  </div>
+  <!-- Botones de acción -->
+  <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+    <button mat-button (click)="onNoClick()"
+      style="width: 15%; color: white; background-color: crimson; margin-left:64%">Cancelar</button>
+    <button mat-button (click)="onSaveClick()"
+      style="width: 15%; color: white; background-color: green; margin-right:5%">Guardar</button>
+  </div>
+</main>

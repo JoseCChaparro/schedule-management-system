@@ -1,8 +1,3 @@
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
 <header>
   <h1 style="text-align: center;">
     Agregar curso
@@ -66,36 +61,13 @@
     </div>
     <div style="flex: 1;">
       <h2>Horario</h2>
-      <div class="container">
-        <div class="row">
-          <div *ngFor="let date of datesInWeek; let indexDay = index" class="col">
-            <p style="size: 100%;"> {{getDateFormat(date)}}</p>
-            <div class="item" *ngFor="let hour of hours; let indexHour = index">
-                <div *ngIf="checkHourInCourse(date, hour); else noEnHorario">
-                  <button mat-button (click)="onHourClick(date, hour, true)"
-                    style="color: rgb(2, 2, 2); background-color: rgb(149, 142, 255);">
-                    {{ hour }}</button>
-                </div>
-                <ng-template #noEnHorario>
-                  <button mat-button (click)="onHourClick(date, hour, false)"
-                    style="color: rgb(2, 2, 2); background-color: rgb(255, 255, 255);">
-                    {{ hour }}</button>
-                </ng-template>
-
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button mat-button (click)="onNoClick()"
-              style="width: 15%; color: white; background-color: crimson; margin-left:64%">Cancelar</button>
-          </div>
-          <div class="col">
-            <button mat-button (click)="onSaveClick()"
-              style="width: 15%; color: white; background-color: green; margin-right:5%">Guardar</button>
-          </div>
-        </div>
-      </div>
     </div>
+  </div>
+  <!-- Botones de acción -->
+  <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
+    <button mat-button (click)="onNoClick()"
+      style="width: 15%; color: white; background-color: crimson; margin-left:64%">Cancelar</button>
+    <button mat-button (click)="onSaveClick()"
+      style="width: 15%; color: white; background-color: green; margin-right:5%">Guardar</button>
   </div>
 </main>

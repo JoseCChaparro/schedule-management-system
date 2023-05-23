@@ -10,14 +10,14 @@ import { StudentsTableComponent, AddStudentDialog, UpdateStudentDialog } from '.
 
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeachersTableComponent, AddTeacherDialog, UpdateTeacherDialog } from './teachers/teachers-table/teachers-table.component';
-import { TeachersEnrollmentComponent, AddTeachersEnrollmentDialog } from './teachers/teachers-enrollment/teachers-enrollment.component';
+import { TeachersEnrollmentComponent, AddTeachersEnrollmentDialog, UpdateTeachersEnrollmentDialog } from './teachers/teachers-enrollment/teachers-enrollment.component';
 
 import { SubjectsComponent } from './subjects/subjects.component';
 import { SubjectsTableComponent, AddSubjectDialog, UpdateSubjectDialog } from './subjects/subjects-table/subjects-table.component';
 import { SubjectsEnrollmentComponent, AddSubjectsEnrollmentDialog } from './subjects/subjects-enrollment/subjects-enrollment.component';
 
 import { CoursesComponent } from './courses/courses.component';
-import { CoursesTableComponent, AddCourseDialog, UpdateCourseDialog } from './courses/courses-table/courses-table.component';
+import { CoursesTableComponent, AddCourseDialog, UpdateCourseDialog, ViewCourseDialog } from './courses/courses-table/courses-table.component';
 
 
 //Imorts de la tabla
@@ -40,6 +40,8 @@ import { StudentsService } from './students/student.service';
 import { TeachersService } from './teachers/teacher.service';
 import { SubjectsService } from './subjects/subject.service';
 import { CoursesService } from './courses/course.service';
+import { ThemeService } from './theme.service';
+import { HorarioService } from './horario.service';
 
 //Calendar
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
@@ -69,7 +71,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     AddTeacherDialog,
     UpdateTeacherDialog,
     TeachersEnrollmentComponent,
-    AddTeachersEnrollmentDialog,    
+    AddTeachersEnrollmentDialog,
+    UpdateTeachersEnrollmentDialog,
 
     SubjectsComponent,
     SubjectsTableComponent,
@@ -82,6 +85,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     CoursesTableComponent,
     AddCourseDialog,
     UpdateCourseDialog,
+    ViewCourseDialog,
 
     LoginComponent,
     LoginFormComponent,
@@ -103,7 +107,10 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
   StudentsService,
   TeachersService,
   SubjectsService,
-  CoursesService],
+  CoursesService,
+  ThemeService,
+  HorarioService,
+  ],
   bootstrap: [AppComponent],
   
 })

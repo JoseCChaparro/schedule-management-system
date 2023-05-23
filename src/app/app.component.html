@@ -1,5 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="mat-app-background basic-container">
-  <router-outlet></router-outlet>
-</div>
-<span class="version-info">Current build: 5.1.1</span>
+<body  style="background: inherit;">
+  <div>
+    <router-outlet (activate)="onSetTheme($event)"></router-outlet>
+  </div>
+  <span class="version-info">Current build: 0.4.1</span>
+</body>

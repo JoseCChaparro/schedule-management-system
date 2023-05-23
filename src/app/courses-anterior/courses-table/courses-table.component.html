@@ -10,23 +10,26 @@
 
     <!-- BOTONES NORMALES -->
 
-    <button mat-raised-button color="warn" class="delete-button" (click)="deleteSelectedRows()"
-      [disabled]="deleteButtonDisabled" tooltip="matTooltip" matTooltip="Eliminar curso/s seleccionados">
+    <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
+      matTooltip="Eliminar curso/s seleccionados" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
       Eliminar
     </button>
 
-    <button mat-raised-button class="inspect-schedule-button"(click)="openViewDialog(courseSelected)"
-      [disabled]="modifyButtonDisabled" tooltip="matTooltip" matTooltip="Ver horario del curso seleccionado">
+    <button class="view-button" (click)="openViewDialog(courseSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Ver horario del curso seleccionado" [matTooltipShowDelay]="350"
+      [matTooltipHideDelay]="100">
       Ver horario del curso
     </button>
 
-    <button mat-raised-button color="accent" class="modify-button" (click)="openUpdateDialog(courseSelected)"
-      [disabled]="modifyButtonDisabled" tooltip="matTooltip" matTooltip="Modificar curso seleccionado">
+
+    <button class="modify-button" (click)="openUpdateDialog(courseSelected)" [disabled]="modifyButtonDisabled"
+      tooltip="matTooltip" matTooltip="Modificar curso seleccionado" [matTooltipShowDelay]="350"
+      [matTooltipHideDelay]="100">
       Modificar
     </button>
 
-    <button mat-raised-button color="primary" class="add-button" (click)="openAddDialog()" tooltip="matTooltip"
-      matTooltip="Agregar curso">
+    <button class="add-button" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar curso"
+      [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
       Agregar
     </button>
 
@@ -35,20 +38,20 @@
 </div>
 <!--button mat-raised-button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
            color="primary" tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados"
-          >
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
               <mat-icon>remove</mat-icon>
               Eliminar
           </button>
 
           <button mat-raised-button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
            color="primary" tooltip="matTooltip" matTooltip="Modificar alumno seleccionado"
-          >
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
               <mat-icon>edit</mat-icon>
               Modify
           </button>
 
           <button mat-raised-button class="add-button" color="primary" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
-          >
+          [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
               <mat-icon>add</mat-icon>
               Agregar
           </button-->

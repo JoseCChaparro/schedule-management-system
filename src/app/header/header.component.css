@@ -37,10 +37,3 @@
   background-color: #038C5F;
 }
 
-.flexExpand {
-  flex: 1 1 auto;
-}
-
-.alignRight {
-  justify-content: flex-end;
-}

@@ -42,7 +42,7 @@
             <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
           </mat-form-field-->
 
-          <mat-calendar [selected]="selectedRangeValue" (selectedChange)="selectedChange($event)">
+        <mat-calendar [selected]="selectedRangeValue" (selectedChange)="selectedChange($event)">
         </mat-calendar>
         <p>
 
@@ -50,7 +50,7 @@
                 <input matInput type="time" [(ngModel)]="time" placeholder="Inserte hora">
             </mat-form-field-->
         </p>
-        
+
         <div mat-dialog-actions style="display: flex; flex-direction: row; justify-content: space-between;">
             <button mat-button (click)="onNoClick()"
                 style="width: 48%; color: white; background-color: crimson;">Cancelar</button>

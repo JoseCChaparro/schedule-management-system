@@ -1,33 +1,37 @@
 <header class="header">
     <h1>
-        <!--button mat-icon-button class="back-button" matTooltip="Atrás" *ngIf="showBackButton" (click)="goBack()">
+        <!--button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+            *ngIf="showBackButton" (click)="goBack()">
             <mat-icon>arrow_back</mat-icon>
         </button>
         <mat-label class="title">{{title}}</mat-label>
-
-        <button mat-icon-button class="back-button" *ngIf="showLogoutButton" matTooltip="Cerrar sesión" (click)="logout()" routerLink="/">
+        <span class="flexExpand"></span>
+        <button mat-icon-button class="theme-button" (click)="toggleTheme()">
+            <mat-icon>invert_colors</mat-icon>
+        </button>
+        <button mat-icon-button class="alignRight" *ngIf="showLogoutButton" (click)="logout()" routerLink="/">
             <mat-icon>logout</mat-icon>
         </button-->
         <!--button (click)="toggleDarkTheme()" style="position: fixed;" >Toggle dark theme</button-->
 
-
         <mat-toolbar color="primary">
             <mat-toolbar-row>
                 <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-                    matTooltip="Atrás" *ngIf="showBackButton" (click)="goBack()">
+                    *ngIf="showBackButton" (click)="goBack()" matTooltip="Atrás">
                     <mat-icon>arrow_back</mat-icon>
                 </button>
                 <mat-label class="title">{{title}}</mat-label>
                 <span class="flexExpand"></span>
-                <button mat-icon-button class="alignRight" *ngIf="showLogoutButton" matTooltip="Cerrar sesión" (click)="logout()" routerLink="/">
+                <button mat-icon-button class="theme-button" (click)="toggleTheme()" matTooltip="Cambiar color">
+                    <mat-icon>invert_colors</mat-icon>
+                </button>
+                <button mat-icon-button class="alignRight" *ngIf="showLogoutButton" (click)="logout()" routerLink="/"
+                    matTooltip="Cerrar sesión">
                     <mat-icon>logout</mat-icon>
-                </button>                
+                </button>
 
             </mat-toolbar-row>
         </mat-toolbar>
-
-
-
     </h1>
 </header>
 

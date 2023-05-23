@@ -3,9 +3,8 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 import { FormControl, FormGroup } from '@angular/forms';
 import { EventSettingsModel, MonthService, ResizeService, DragAndDropService, NavigatingEventArgs, View, EventRenderedArgs } from '@syncfusion/ej2-angular-schedule';
 import { extend } from '@syncfusion/ej2-base';
-import { generateObject, zooEventsData } from './data';
+import { generateObject, zooEventsData } from '../../data';
 import { DateRange } from '@angular/material/datepicker';
-//import { DateRange } from '@syncfusion/ej2-angular-calendars';
 
 
 @Component({

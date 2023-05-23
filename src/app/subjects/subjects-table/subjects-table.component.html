@@ -9,7 +9,7 @@
   </mat-form-field>
 
   <div class="button-container" style="flex: 2">
-    <!-- BOTONES NORMALES -->
+    <!-- BOTONES NORMALES 
 
     <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
       matTooltip="Eliminar materia/s seleccionada/s" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
@@ -27,29 +27,26 @@
       Agregar
     </button>
 
-    <!-- BOTONES CON MATERIAL DESIGN
+    -->
 
-        <button mat-raised-button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
-         color="primary" tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+    <!-- BOTONES CON MATERIAL DESIGN-->
+
+        <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
+          >
             <mat-icon>remove</mat-icon>
             Eliminar
         </button>
 
-        <button mat-raised-button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
-         color="primary" tooltip="matTooltip" matTooltip="Modificar alumno seleccionado"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+        <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;" (click)="openUpdateDialog(subjectSelected)" [disabled]="modifyButtonDisabled"
+           >
             <mat-icon>edit</mat-icon>
-            Modify
+            Modificar
         </button>
 
-        <button mat-raised-button class="add-button" color="primary" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
+        <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;" (click)="openAddDialog()"  >
             <mat-icon>add</mat-icon>
             Agregar
         </button>
-
-        -->
   </div>
 </div>
 

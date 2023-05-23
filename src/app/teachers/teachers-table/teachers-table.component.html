@@ -7,7 +7,7 @@
 
   <div class="button-container" style="flex: 2;">
 
-    <!-- BOTONES NORMALES -->
+    <!-- BOTONES NORMALES 
 
     <button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" tooltip="matTooltip"
       matTooltip="Eliminar maestro/s seleccionados" [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
@@ -24,30 +24,29 @@
       [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
       Agregar
     </button>
+    -->
 
-    <!-- BOTONES CON MATERIAL DESIGN
+    <!-- BOTONES CON MATERIAL DESIGN -->
 
-        <button mat-raised-button class="delete-button" (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled"
-         color="primary" tooltip="matTooltip" matTooltip="Eliminar alumno/s seleccionados"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
-            <mat-icon>remove</mat-icon>
-            Eliminar
-        </button>
+    <button mat-raised-button class="delete-button" color="warn" style="justify-content: flex-end;"
+      (click)="deleteSelectedRows()" [disabled]="deleteButtonDisabled" matTooltip="Eliminar maestro/s seleccionado/s">
+      <mat-icon>remove</mat-icon>
+      Eliminar
+    </button>
 
-        <button mat-raised-button class="modify-button" (click)="openUpdateDialog(studentSelected)" [disabled]="modifyButtonDisabled"
-         color="primary" tooltip="matTooltip" matTooltip="Modificar alumno seleccionado"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
-            <mat-icon>edit</mat-icon>
-            Modify
-        </button>
+    <button mat-raised-button class="modify-button" color="accent" style="justify-content: flex-end;"
+      (click)="openUpdateDialog(teacherSelected)" [disabled]="modifyButtonDisabled"
+      matTooltip="Modificar maestro seleccionado">
+      <mat-icon>edit</mat-icon>
+      Modificar
+    </button>
 
-        <button mat-raised-button class="add-button" color="primary" (click)="openAddDialog()" tooltip="matTooltip" matTooltip="Agregar alumno"
-        [matTooltipShowDelay]="350" [matTooltipHideDelay]="100">
-            <mat-icon>add</mat-icon>
-            Agregar
-        </button>
+    <button mat-raised-button class="add-button" color="primary" style="justify-content: flex-end;"
+      (click)="openAddDialog()" matTooltip="Agregar maestro">
+      <mat-icon>add</mat-icon>
+      Agregar
+    </button>
 
-        -->
 
 
   </div>
@@ -86,7 +85,7 @@
 
 <div class="example-container mat-elevation-z8">
 
-    <mat-table [dataSource]=" dataSource" matSort>
+  <mat-table [dataSource]=" dataSource" matSort>
 
     <!-- Checkbox Column -->
     <ng-container matColumnDef="checkbox">
@@ -120,7 +119,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>
 
-    </mat-table>
+  </mat-table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
